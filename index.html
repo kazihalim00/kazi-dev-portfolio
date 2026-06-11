@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Kazi Abdul Halim Sunny — Software Engineer</title>
+    <meta name="description"
+        content="Portfolio of Kazi Abdul Halim Sunny — Full-Stack Developer, Flutter & AI Engineer from Sylhet, Bangladesh.">
+
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <style>
+        /* ===== GLOBAL OVERRIDES ===== */
+        :root {
+            --bg-primary: #0a0d16;
+            --bg-secondary: #0f1117;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.07);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.65);
+            --text-muted: rgba(255, 255, 255, 0.45);
+            --text-soft: rgba(255, 255, 255, 0.4);
+            --accent-blue: #3b82f6;
+            --accent-purple: #7c3aed;
+            --accent-light: #63b3ed;
+        }
+
+        body.light-mode {
+            --bg-primary: #f0f4ff;
+            --bg-secondary: #e8edf8;
+            --bg-card: rgba(0, 0, 0, 0.03);
+            --border-color: rgba(0, 0, 0, 0.09);
+            --text-primary: #0f1117;
+            --text-secondary: #374151;
+            --text-muted: #6b7280;
+            --text-soft: #9ca3af;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-primary);
+            color: #fff;
+        }
+
+        /* ===== CLICK BUBBLE ===== */
+        .click-bubble {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 179, 237, 0.6), transparent);
+            transform: translate(-50%, -50%);
+            animation: bubble-out 0.7s ease-out forwards;
+        }
+
+        @keyframes bubble-out {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(5);
+                opacity: 0;
+            }
+        }
+
+        .scroll-top {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)) !important;
+            border-radius: 50% !important;
+        }
+
+        /* ===== LIGHT MODE ===== */
+        body.light-mode {
+            background: #f0f4ff !important;
+            color: #1a1f35 !important;
+        }
+
+        body.light-mode section {
+            background: #f0f4ff !important;
+        }
+
+        body.light-mode section[style*="background:#0a0d16"],
+        body.light-mode section[style*="background:#0f1117"] {
+            background: #f0f4ff !important;
+        }
+
+        body.light-mode h1,
+        body.light-mode h2,
+        body.light-mode h3,
+        body.light-mode h4,
+        body.light-mode h5,
+        body.light-mode p {
+            color: #1a1f35 !important;
+        }
+
+        body.light-mode [style*="color:rgba(255,255,255"] {
+            color: rgba(30, 30, 50, 0.7) !important;
+        }
+
+        body.light-mode [style*="background:rgba(255,255,255,0.03)"] {
+            background: rgba(0, 0, 0, 0.04) !important;
+        }
+
+        body.light-mode [style*="border:1px solid rgba(255,255,255,0.07)"] {
+            border-color: rgba(0, 0, 0, 0.1) !important;
+        }
+
+        body.light-mode #header {
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08) !important;
+        }
+
+        body.light-mode .navmenu a {
+            color: #1a1f35 !important;
+        }
+
+        body.light-mode #theme-toggle {
+            background: rgba(0, 0, 0, 0.08) !important;
+            color: #1a1f35 !important;
+        }
+
+        body.light-mode .hero.section {
+            background: #1a1f35 !important;
+        }
+    </style>
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
+            style="padding: 14px 24px;">
+            <a href="#hero" class="logo d-flex align-items-center" style="text-decoration:none;">
+                <h1 class="sitename"
+                    style="margin:0; font-size:1.4rem; font-weight:800; letter-spacing:2px; background: linear-gradient(135deg, #63b3ed, #9f7aea); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    K.A.H.S</h1>
+            </a>
+            <nav id="navmenu" class="navmenu" style="position:relative;">
+                <ul class="d-flex align-items-center" id="nav-list"
+                    style="list-style:none; margin:0; padding:0; gap:4px;">
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Projects</a></li>
+                    <li>
+                        <a href="#courses"
+                            style="background: linear-gradient(135deg, #3b82f6, #7c3aed); color: #fff !important; padding: 7px 18px !important; border-radius: 50px; font-weight: 600; font-size: 13.5px; transition: opacity 0.2s;"
+                            onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">🎓 Courses</a>
+                    </li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="ms-2" style="list-style:none;">
+                        <button id="theme-toggle" class="btn border-0" aria-label="Toggle theme"
+                            style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s;"
+                            onmouseover="this.style.background='rgba(99,179,237,0.2)'"
+                            onmouseout="this.style.background='rgba(255,255,255,0.08)'">
+                            <i class="bi bi-sun-fill" id="theme-icon" style="font-size:15px;"></i>
+                        </button>
+                    </li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list" id="mobile-nav-btn"
+                    style="font-size:1.6rem; cursor:pointer;"></i>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section id="hero" class="hero section dark-background"
+            style="position:relative; overflow:hidden; min-height:100vh; display:flex; align-items:center;">
+            <img src="assets/img/kazi.jpeg" alt="Kazi Abdul Halim Sunny" data-aos="fade-in"
+                style="position:absolute; inset:0; width:90%; height:90%; object-fit:cover; object-position:center 15%; transform:translateX(200px); z-index:0; opacity:1;">
+            <div
+                style="position:absolute;inset:0;z-index:1; background:linear-gradient(to right, rgba(10,13,22,0.96) 0%, rgba(10,13,22,0.75) 42%, rgba(10,13,22,0.15) 65%, rgba(10,13,22,0.5) 100%);">
+            </div>
+            <div
+                style="position:absolute;bottom:0;left:0;right:0;height:220px;z-index:2; background:linear-gradient(to bottom, transparent, rgba(10,13,22,0.95));">
+            </div>
+            <div
+                style="position:absolute;inset:0;z-index:2;pointer-events:none; background-image:linear-gradient(rgba(99,179,237,0.03) 1px,transparent 1px), linear-gradient(90deg,rgba(99,179,237,0.03) 1px,transparent 1px); background-size:60px 60px;">
+            </div>
+
+            <div class="container position-relative" style="z-index:3;" data-aos="fade-up" data-aos-delay="100">
+                <div class="row">
+                    <div class="col-lg-7 text-start">
+                        <div
+                            style="display:inline-flex;align-items:center;gap:8px; background:rgba(99,179,237,0.12);border:1px solid rgba(99,179,237,0.3); border-radius:50px;padding:6px 18px;margin-bottom:28px; font-size:13px;color:#63b3ed;letter-spacing:1.5px;text-transform:uppercase;">
+                            <span
+                                style="width:7px;height:7px;border-radius:50%;background:#63b3ed; display:inline-block;animation:pulse-dot 1.5s infinite;"></span>
+                            Available for Opportunities
+                        </div>
+                        <h1
+                            style="font-size:clamp(2.5rem,6vw,5rem);font-weight:800;color:#fff; line-height:1.1;margin-bottom:20px;letter-spacing:-1px;">
+                            Kazi Abdul<br>
+                            <span
+                                style="background:linear-gradient(135deg,#63b3ed,#9f7aea); -webkit-background-clip:text;-webkit-text-fill-color:transparent;">Halim
+                                Sunny</span>
+                        </h1>
+                        <p
+                            style="font-size:1.5rem;color:rgba(255,255,255,0.85);margin-bottom:16px;font-weight:500;min-height:2rem;">
+                            <span class="slow-typed"
+                                data-typed-items="Software Engineer,Full-Stack Developer,Flutter Developer,AI Enthusiast"></span>
+                        </p>
+                        <p
+                            style="font-size:1rem;color:rgba(255,255,255,0.5);margin-bottom:40px;max-width:480px;line-height:1.8;">
+                            Building scalable systems & intelligent applications<br>from Sylhet, Bangladesh.
+                        </p>
+                        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+                            <a href="#portfolio"
+                                style="background:linear-gradient(135deg,#3b82f6,#7c3aed); color:#fff;padding:13px 32px;border-radius:50px; font-weight:600;font-size:15px;text-decoration:none; box-shadow:0 4px 24px rgba(99,102,241,0.4);transition:transform 0.2s;"
+                                onmouseover="this.style.transform='translateY(-2px)'"
+                                onmouseout="this.style.transform='none'">View My Work</a>
+                            <a href="#contact"
+                                style="backdrop-filter:blur(8px);background:rgba(255,255,255,0.08); color:#fff;padding:13px 32px;border-radius:50px; font-weight:600;font-size:15px;text-decoration:none; border:1px solid rgba(255,255,255,0.25);transition:all 0.2s;"
+                                onmouseover="this.style.borderColor='rgba(255,255,255,0.6)';this.style.background='rgba(255,255,255,0.14)'"
+                                onmouseout="this.style.borderColor='rgba(255,255,255,0.25)';this.style.background='rgba(255,255,255,0.08)'">Contact
+                                Me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:4;text-align:center;">
+                <a href="#about"
+                    style="color:rgba(255,255,255,0.35);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;">scroll<br>
+                    <i class="bi bi-chevron-down"
+                        style="animation:bounce 2s infinite;display:block;margin-top:4px;"></i>
+                </a>
+            </div>
+
+            <style>
+                @keyframes pulse-dot {
+
+                    0%,
+                    100% {
+                        opacity: 1;
+                    }
+
+                    50% {
+                        opacity: 0.3;
+                    }
+                }
+
+                @keyframes bounce {
+
+                    0%,
+                    100% {
+                        transform: translateY(0);
+                    }
+
+                    50% {
+                        transform: translateY(6px);
+                    }
+                }
+            </style>
+        </section>
+
+        <section id="about" class="about section" style="padding:90px 0;background:#0f1117;">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div style="text-align:center;margin-bottom:60px;">
+                    <span
+                        style="color:#63b3ed;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:600;">Who
+                        I Am</span>
+                    <h2 style="font-size:2.4rem;font-weight:800;color:black;margin-top:10px;">About Me</h2>
+                    <div
+                        style="width:50px;height:3px;background:linear-gradient(90deg,#3b82f6,#7c3aed);margin:16px auto 0;border-radius:10px;">
+                    </div>
+                </div>
+
+                <div class="row gy-5 align-items-center">
+                    <div class="col-lg-4 text-center" data-aos="fade-right">
+                        <div style="position:relative;display:inline-block;">
+                            <div
+                                style="position:absolute;inset:-6px;border-radius:50%; background:linear-gradient(135deg,#3b82f6,#7c3aed);z-index:0;">
+                            </div>
+                            <img src="assets/img/kazi.jpeg" alt="Kazi Abdul Halim Sunny"
+                                style="width:200px;height:200px;border-radius:50%; object-fit:cover;object-position:center 8%; position:relative;z-index:1;border:4px solid #0f1117;">
+                        </div>
+                        <div style="margin-top:28px;">
+                            <h3 style="color:black;font-weight:700;font-size:1.3rem;margin-bottom:4px;">Kazi Abdul Halim
+                                Sunny</h3>
+                            <p style="color:#63b3ed;font-size:14px;margin-bottom:20px;">Full-Stack Developer & SE
+                                Student</p>
+                            <div
+                                style="display:flex;flex-direction:column;gap:10px;text-align:left; background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08); border-radius:14px;padding:20px;">
+                                <div style="display:flex;gap:10px;align-items:flex-start;">
+                                    <i class="bi bi-envelope"
+                                        style="color:#63b3ed;font-size:15px;flex-shrink:0;margin-top:2px;"></i>
+                                    <span
+                                        style="color:rgba(19, 1, 1, 0.65);font-size:13px;line-height:1.5;">kaziabdulhalisunny01@gmail.com</span>
+                                </div>
+                                <div style="display:flex;gap:10px;align-items:flex-start;">
+                                    <i class="bi bi-telephone"
+                                        style="color:#63b3ed;font-size:15px;flex-shrink:0;margin-top:2px;"></i>
+                                    <span
+                                        style="color:rgba(19, 1, 1, 0.65);font-size:13px;line-height:1.5;">+8801748461142</span>
+                                </div>
+                                <div style="display:flex;gap:10px;align-items:flex-start;">
+                                    <i class="bi bi-geo-alt"
+                                        style="color:#63b3ed;font-size:15px;flex-shrink:0;margin-top:2px;"></i>
+                                    <span style="color:rgba(19, 1, 1, 0.65);font-size:13px;line-height:1.5;">Sylhet,
+                                        Bangladesh</span>
+                                </div>
+                                <div style="display:flex;gap:10px;align-items:flex-start;">
+                                    <i class="bi bi-mortarboard"
+                                        style="color:#63b3ed;font-size:15px;flex-shrink:0;margin-top:2px;"></i>
+                                    <span
+                                        style="color:rgba(19, 1, 1, 0.65);font-size:13px;line-height:1.5;">Metropolitan
+                                        University, Sylhet</span>
+                                </div>
+                            </div>
+                            <a href="assets/kazi-sunny-cv.pdf" download="Kazi_Sunny_CV.pdf"
+                                style="display:inline-flex;align-items:center;gap:8px;margin-top:20px; background:linear-gradient(135deg,#3b82f6,#7c3aed); color:#fff;padding:11px 28px;border-radius:50px; font-size:14px;font-weight:600;text-decoration:none; box-shadow:0 4px 20px rgba(99,102,241,0.3);">
+                                <i class="bi bi-download"></i> Download CV
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8" data-aos="fade-left">
+                        <div
+                            style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07); border-radius:20px;padding:36px;">
+                            <h4 style="font-weight:700;font-size:1.3rem;margin-bottom:18px;">
+                                <span
+                                    style="background:linear-gradient(135deg,#63b3ed,#9f7aea); -webkit-background-clip:text;-webkit-text-fill-color:transparent;">Hello!
+                                    I'm Sunny 👋</span>
+                            </h4>
+                            <p style="color:rgba(67, 11, 11, 0.65);line-height:1.85;margin-bottom:14px;font-size:15px;">
+                                I'm a dedicated Software Engineering student at Metropolitan University, Sylhet —
+                                specializing in full-stack web development and cross-platform mobile applications.
+                                Driven by a deep passion for understanding the <strong style="color:#63b3ed;">core
+                                    logic</strong> behind complex systems.
+                            </p>
+                            <p style="color:rgba(85, 11, 11, 0.65);line-height:1.85;margin-bottom:28px;font-size:15px;">
+                                From <strong style="color:#9f7aea;">Laravel-powered platforms</strong> to AI chatbots
+                                like 'Noor AI' with Python, to cross-platform mobile apps with Flutter — my goal is
+                                always to build software that makes a <strong style="color:#63b3ed;">real
+                                    impact</strong>.
+                            </p>
+                            <h5 style="color:black;font-weight:600;margin-bottom:20px;font-size:15px;">Technical Skills
+                            </h5>
+
+                            <div style="display:flex;flex-direction:column;gap:16px;">
+                                <div>
+                                    <div style="display:flex;justify-content:space-between;margin-bottom:7px;">
+                                        <span style="color:rgba(16, 0, 0, 0.8);font-size:14px;font-weight:500;">Laravel
+                                            (PHP)</span>
+                                        <span style="color:#f05340;font-size:13px;font-weight:700;">90%</span>
+                                    </div>
+                                    <div
+                                        style="background:rgba(255,255,255,0.08);border-radius:50px;height:7px;overflow:hidden;">
+                                        <div
+                                            style="height:100%;width:90%; background:linear-gradient(90deg,#f05340,#f0534099); border-radius:50px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style="display:flex;justify-content:space-between;margin-bottom:7px;">
+                                        <span style="color:rgba(16, 0, 0, 0.8);font-size:14px;font-weight:500;">Python &
+                                            AI Integration</span>
+                                        <span style="color:#3b82f6;font-size:13px;font-weight:700;">85%</span>
+                                    </div>
+                                    <div
+                                        style="background:rgba(255,255,255,0.08);border-radius:50px;height:7px;overflow:hidden;">
+                                        <div
+                                            style="height:100%;width:85%; background:linear-gradient(90deg,#3b82f6,#3b82f699); border-radius:50px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style="display:flex;justify-content:space-between;margin-bottom:7px;">
+                                        <span style="color:rgba(16, 0, 0, 0.8);font-size:14px;font-weight:500;">Flutter
+                                            (Dart)</span>
+                                        <span style="color:#54c5f8;font-size:13px;font-weight:700;">80%</span>
+                                    </div>
+                                    <div
+                                        style="background:rgba(255,255,255,0.08);border-radius:50px;height:7px;overflow:hidden;">
+                                        <div
+                                            style="height:100%;width:80%; background:linear-gradient(90deg,#54c5f8,#54c5f899); border-radius:50px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style="display:flex;justify-content:space-between;margin-bottom:7px;">
+                                        <span
+                                            style="color:rgba(16, 0, 0, 0.8);font-size:14px;font-weight:500;">JavaScript
+                                            & MySQL</span>
+                                        <span style="color:#f0c040;font-size:13px;font-weight:700;">75%</span>
+                                    </div>
+                                    <div
+                                        style="background:rgba(255,255,255,0.08);border-radius:50px;height:7px;overflow:hidden;">
+                                        <div
+                                            style="height:100%;width:75%; background:linear-gradient(90deg,#f0c040,#f0c04099); border-radius:50px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resume" class="resume section" style="padding:90px 0;background:#0f1117;">
+            <div class="container" data-aos="fade-up">
+                <div style="text-align:center;margin-bottom:60px;">
+                    <span
+                        style="color:#63b3ed;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:600;">My
+                        Journey</span>
+                    <h2 style="font-size:2.4rem;font-weight:800;color:#fff;margin-top:10px;">Resume</h2>
+                    <div
+                        style="width:50px;height:3px;background:linear-gradient(90deg,#3b82f6,#7c3aed);margin:16px auto 0;border-radius:10px;">
+                    </div>
+                    <p style="color:rgba(255,255,255,0.45);margin-top:14px;font-size:15px;">Academic background,
+                        leadership & professional development.</p>
+                </div>
+
+                <div class="row gy-5">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h4
+                            style="color:#63b3ed;font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:10px;">
+                            <i class="bi bi-mortarboard-fill"></i> Education</h4>
+                        <div style="position:relative;padding-left:28px;border-left:2px solid rgba(99,179,237,0.2);">
+                            <div style="margin-bottom:28px;position:relative;">
+                                <div
+                                    style="position:absolute;left:-36px;top:6px;width:14px;height:14px;border-radius:50%; background:linear-gradient(135deg,#3b82f6,#7c3aed);box-shadow:0 0 0 4px rgba(99,179,237,0.15);">
+                                </div>
+                                <div
+                                    style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:22px;">
+                                    <span
+                                        style="font-size:12px;color:#63b3ed;font-weight:600;letter-spacing:1px;">Expected
+                                        2027</span>
+                                    <h5 style="color:#fff;font-weight:700;font-size:1rem;margin:8px 0 4px;">B.Sc. in
+                                        Software Engineering</h5>
+                                    <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:8px;">
+                                        <em>Metropolitan University, Sylhet</em></p>
+                                    <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;">CGPA
+                                        3.9+ · Vice Chancellor Scholarship · Chairman's Scholarship</p>
+                                </div>
+                            </div>
+                            <div style="margin-bottom:0;position:relative;">
+                                <div
+                                    style="position:absolute;left:-36px;top:6px;width:14px;height:14px;border-radius:50%; background:linear-gradient(135deg,#3b82f6,#7c3aed);box-shadow:0 0 0 4px rgba(99,179,237,0.15);">
+                                </div>
+                                <div
+                                    style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:22px;">
+                                    <span
+                                        style="font-size:12px;color:#63b3ed;font-weight:600;letter-spacing:1px;">Graduated</span>
+                                    <h5 style="color:#fff;font-weight:700;font-size:1rem;margin:8px 0 4px;">Higher
+                                        Secondary Certificate (HSC)</h5>
+                                    <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:8px;"><em>Science
+                                            Group</em></p>
+                                    <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;">
+                                        Strong foundation in mathematics & analytical thinking.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <h4
+                            style="color:#9f7aea;font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:10px;">
+                            <i class="bi bi-briefcase-fill"></i> Experience & Leadership</h4>
+                        <div style="position:relative;padding-left:28px;border-left:2px solid rgba(159,122,234,0.2);">
+                            <div style="margin-bottom:28px;position:relative;">
+                                <div
+                                    style="position:absolute;left:-36px;top:6px;width:14px;height:14px;border-radius:50%; background:#9f7aea;box-shadow:0 0 0 4px rgba(159,122,234,0.15);">
+                                </div>
+                                <div
+                                    style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:22px;">
+                                    <span style="font-size:12px;color:#9f7aea;font-weight:600;letter-spacing:1px;">2025
+                                        – Present</span>
+                                    <h5 style="color:#fff;font-weight:700;font-size:0.95rem;margin:8px 0 4px;">General
+                                        Secretary & Co-curricular Secretary</h5>
+                                    <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:8px;">
+                                        <em>Software Innovators Forum, Metropolitan University</em></p>
+                                    <ul
+                                        style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;padding-left:16px;">
+                                        <li>Lead & coordinate departmental events and tech seminars.</li>
+                                        <li>Deliver official speeches and manage forum communications.</li>
+                                        <li>Foster project-based learning among peers.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="margin-bottom:28px;position:relative;">
+                                <div
+                                    style="position:absolute;left:-36px;top:6px;width:14px;height:14px;border-radius:50%; background:#63b3ed;box-shadow:0 0 0 4px rgba(159,122,234,0.15);">
+                                </div>
+                                <div
+                                    style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:22px;">
+                                    <span style="font-size:12px;color:#63b3ed;font-weight:600;letter-spacing:1px;">Late
+                                        2025 – Early 2026</span>
+                                    <h5 style="color:#fff;font-weight:700;font-size:0.95rem;margin:8px 0 4px;">Content
+                                        Writer (C & Python)</h5>
+                                    <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:8px;">
+                                        <em>Metropolitan University Programming Olympiad</em></p>
+                                    <ul
+                                        style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;padding-left:16px;">
+                                        <li>Prepared slide content & technical materials for students.</li>
+                                        <li>Developed beginner-friendly C and Python resources.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="margin-bottom:0;position:relative;">
+                                <div
+                                    style="position:absolute;left:-36px;top:6px;width:14px;height:14px;border-radius:50%; background:#f0c040;box-shadow:0 0 0 4px rgba(159,122,234,0.15);">
+                                </div>
+                                <div
+                                    style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:22px;">
+                                    <span style="font-size:12px;color:#f0c040;font-weight:600;letter-spacing:1px;">2025
+                                        – Present</span>
+                                    <h5 style="color:#fff;font-weight:700;font-size:0.95rem;margin:8px 0 4px;">Founder &
+                                        Entrepreneur</h5>
+                                    <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:8px;"><em>Kazi
+                                            Elegance & The Revival</em></p>
+                                    <ul
+                                        style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;padding-left:16px;">
+                                        <li>Manage digital presence for Panjabi clothing line & fragrance brand.</li>
+                                        <li>Apply analytics to marketing & brand growth.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services section" style="padding:90px 0;background:#0a0d16;">
+            <div class="container" data-aos="fade-up">
+                <div style="text-align:center;margin-bottom:60px;">
+                    <span
+                        style="color:#63b3ed;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:600;">What
+                        I Offer</span>
+                    <h2 style="font-size:2.4rem;font-weight:800;color:#fff;margin-top:10px;">Services</h2>
+                    <div
+                        style="width:50px;height:3px;background:linear-gradient(90deg,#3b82f6,#7c3aed);margin:16px auto 0;border-radius:10px;">
+                    </div>
+                    <p style="color:rgba(255,255,255,0.45);margin-top:14px;font-size:15px;">Tailored technical solutions
+                        focusing on robust logic and clean architecture.</p>
+                </div>
+
+                <div class="row gy-4">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="80">
+                        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07); border-radius:18px;padding:32px 26px;height:100%; transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;"
+                            onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='#3b82f655';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.3)'"
+                            onmouseout="this.style.transform='none';this.style.borderColor='rgba(255,255,255,0.07)';this.style.boxShadow='none'">
+                            <div
+                                style="width:52px;height:52px;border-radius:14px;background:#3b82f618; display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                                <i class="bi bi-laptop" style="font-size:1.5rem;color:#3b82f6;"></i>
+                            </div>
+                            <h5 style="color:#fff;font-weight:700;font-size:1rem;margin-bottom:12px;">Full-Stack Web
+                                Development</h5>
+                            <p style="color:rgba(255,255,255,0.5);font-size:14px;line-height:1.7;margin:0;">Scalable and
+                                secure web applications using Laravel, PHP, and modern frontend technologies.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="160">
+                        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07); border-radius:18px;padding:32px 26px;height:100%; transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;"
+                            onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='#9f7aea55';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.3)'"
+                            onmouseout="this.style.transform='none';this.style.borderColor='rgba(255,255,255,0.07)';this.style.boxShadow='none'">
+                            <div
+                                style="width:52px;height:52px;border-radius:14px;background:#9f7aea18; display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                                <i class="bi bi-phone" style="font-size:1.5rem;color:#9f7aea;"></i>
+                            </div>
+                            <h5 style="color:#fff;font-weight:700;font-size:1rem;margin-bottom:12px;">Mobile App
+                                Development</h5>
+                            <p style="color:rgba(255,255,255,0.5);font-size:14px;line-height:1.7;margin:0;">
+                                Cross-platform, responsive mobile applications using Flutter and Dart.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="240">
+                        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07); border-radius:18px;padding:32px 26px;height:100%; transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;"
+                            onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='#63b3ed55';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.3)'"
+                            onmouseout="this.style.transform='none';this.style.borderColor='rgba(255,255,255,0.07)';this.style.boxShadow='none'">
+                            <div
+                                style="width:52px;height:52px;border-radius:14px;background:#63b3ed18; display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                                <i class="bi bi-robot" style="font-size:1.5rem;color:#63b3ed;"></i>
+                            </div>
+                            <h5 style="color:#fff;font-weight:700;font-size:1rem;margin-bottom:12px;">AI & API
+                                Integration</h5>
+                            <p style="color:rgba(255,255,255,0.5);font-size:14px;line-height:1.7;margin:0;">Integrating
+                                ML models and developing AI chatbots using Python and Streamlit.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="320">
+                        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07); border-radius:18px;padding:32px 26px;height:100%; transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;"
+                            onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='#f0c04055';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.3)'"
+                            onmouseout="this.style.transform='none';this.style.borderColor='rgba(255,255,255,0.07)';this.style.boxShadow='none'">
+                            <div
+                                style="width:52px;height:52px;border-radius:14px;background:#f0c04018; display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                                <i class="bi bi-database-check" style="font-size:1.5rem;color:#f0c040;"></i>
+                            </div>
+                            <h5 style="color:#fff;font-weight:700;font-size:1rem;margin-bottom:12px;">Database
+                                Architecture</h5>
+                            <p style="color:rgba(255,255,255,0.5);font-size:14px;line-height:1.7;margin:0;">Optimized
+                                and structured database schemas for complex systems like LMS or Library systems.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07); border-radius:18px;padding:32px 26px;height:100%; transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;"
+                            onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='#f0534055';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.3)'"
+                            onmouseout="this.style.transform='none';this.style.borderColor='rgba(255,255,255,0.07)';this.style.boxShadow='none'">
+                            <div
+                                style="width:52px;height:52px;border-radius:14px;background:#f0534018; display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                                <i class="bi bi-bug" style="font-size:1.5rem;color:#f05340;"></i>
+                            </div>
+                            <h5 style="color:#fff;font-weight:700;font-size:1rem;margin-bottom:12px;">Code Debugging &
+                                Optimization</h5>
+                            <p style="color:rgba(255,255,255,0.5);font-size:14px;line-height:1.7;margin:0;">Analyzing
+                                existing logic, fixing bugs, and optimizing algorithms for better performance.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="480">
+                        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07); border-radius:18px;padding:32px 26px;height:100%; transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;"
+                            onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='#48bb7855';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.3)'"
+                            onmouseout="this.style.transform='none';this.style.borderColor='rgba(255,255,255,0.07)';this.style.boxShadow='none'">
+                            <div
+                                style="width:52px;height:52px;border-radius:14px;background:#48bb7818; display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                                <i class="bi bi-shop" style="font-size:1.5rem;color:#48bb78;"></i>
+                            </div>
+                            <h5 style="color:#fff;font-weight:700;font-size:1rem;margin-bottom:12px;">E-commerce
+                                Solutions</h5>
+                            <p style="color:rgba(255,255,255,0.5);font-size:14px;line-height:1.7;margin:0;">Functional
+                                e-commerce platforms with product management and order tracking.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio section" style="padding:90px 0;background:#0f1117;">
+            <div class="container" data-aos="fade-up">
+                <div style="text-align:center;margin-bottom:60px;">
+                    <span
+                        style="color:#63b3ed;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:600;">My
+                        Work</span>
+                    <h2 style="font-size:2.4rem;font-weight:800;color:#fff;margin-top:10px;">Projects</h2>
+                    <div
+                        style="width:50px;height:3px;background:linear-gradient(90deg,#3b82f6,#7c3aed);margin:16px auto 0;border-radius:10px;">
+                    </div>
+                    <p style="color:rgba(255,255,255,0.45);margin-top:14px;font-size:15px;">Full-stack platforms, mobile
+                        apps, and AI integrations.</p>
+                </div>
+
+                <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+                    <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100"
+                        style="display:flex;gap:10px;justify-content:center;list-style:none;padding:0;flex-wrap:wrap;margin-bottom:40px;">
+                        <li data-filter="*" class="filter-active"
+                            style="padding:8px 22px;border-radius:50px;font-size:14px;font-weight:600;cursor:pointer;">
+                            All</li>
+                        <li data-filter=".filter-app"
+                            style="padding:8px 22px;border-radius:50px;font-size:14px;font-weight:600;cursor:pointer;">
+                            Mobile Apps</li>
+                        <li data-filter=".filter-product"
+                            style="padding:8px 22px;border-radius:50px;font-size:14px;font-weight:600;cursor:pointer;">
+                            Web Systems</li>
+                        <li data-filter=".filter-branding"
+                            style="padding:8px 22px;border-radius:50px;font-size:14px;font-weight:600;cursor:pointer;">
+                            AI Projects</li>
+                    </ul>
+
+                    <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <div style="border-radius:16px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.07);transition:transform 0.3s;"
+                                onmouseover="this.style.transform='translateY(-4px)'"
+                                onmouseout="this.style.transform='none'">
+                                <img src="assets/img/portfolio/house-rent.png" class="img-fluid"
+                                    alt="House Rent Project"
+                                    style="width:100%;height:220px;object-fit:cover;display:block;">
+                                <div class="portfolio-info"
+                                    style="background:rgba(10,13,22,0.93);backdrop-filter:blur(8px);">
+                                    <span
+                                        style="font-size:11px;font-weight:700;letter-spacing:1px;color:#3b82f6;text-transform:uppercase;">Web</span>
+                                    <h4 style="color:#fff;margin:6px 0 4px;font-size:1rem;font-weight:700;">House Rent
+                                        Project</h4>
+                                    <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;">Collaborative
+                                        Full-Stack Web App</p>
+                                    <div style="display:flex;gap:10px;margin-top:12px;">
+                                        <a href="assets/img/portfolio/house-rent.png"
+                                            data-gallery="portfolio-gallery-product" class="glightbox preview-link"
+                                            style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
+                                                class="bi bi-zoom-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                            <div style="border-radius:16px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.07);transition:transform 0.3s;"
+                                onmouseover="this.style.transform='translateY(-4px)'"
+                                onmouseout="this.style.transform='none'">
+                                <img src="assets/img/portfolio/noor-ai.png" class="img-fluid" alt="Noor AI"
+                                    style="width:100%;height:220px;object-fit:cover;display:block;">
+                                <div class="portfolio-info"
+                                    style="background:rgba(10,13,22,0.93);backdrop-filter:blur(8px);">
+                                    <span
+                                        style="font-size:11px;font-weight:700;letter-spacing:1px;color:#9f7aea;text-transform:uppercase;">AI</span>
+                                    <h4 style="color:#fff;margin:6px 0 4px;font-size:1rem;font-weight:700;">Noor AI</h4>
+                                    <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;">AI Chatbot — Python
+                                        & Streamlit</p>
+                                    <div style="display:flex;gap:10px;margin-top:12px;">
+                                        <a href="assets/img/portfolio/noor-ai.png"
+                                            data-gallery="portfolio-gallery-branding" class="glightbox preview-link"
+                                            style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
+                                                class="bi bi-zoom-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <div style="border-radius:16px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.07);transition:transform 0.3s;"
+                                onmouseover="this.style.transform='translateY(-4px)'"
+                                onmouseout="this.style.transform='none'">
+                                <img src="assets/img/portfolio/library.png" class="img-fluid"
+                                    alt="Library Management System"
+                                    style="width:100%;height:220px;object-fit:cover;display:block;">
+                                <div class="portfolio-info"
+                                    style="background:rgba(10,13,22,0.93);backdrop-filter:blur(8px);">
+                                    <span
+                                        style="font-size:11px;font-weight:700;letter-spacing:1px;color:#3b82f6;text-transform:uppercase;">Web</span>
+                                    <h4 style="color:#fff;margin:6px 0 4px;font-size:1rem;font-weight:700;">Library
+                                        Management System</h4>
+                                    <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;">Robust backend with
+                                        Laravel</p>
+                                    <div style="display:flex;gap:10px;margin-top:12px;">
+                                        <a href="assets/img/portfolio/library.png"
+                                            data-gallery="portfolio-gallery-product" class="glightbox preview-link"
+                                            style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
+                                                class="bi bi-zoom-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <div style="border-radius:16px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.07);transition:transform 0.3s;"
+                                onmouseover="this.style.transform='translateY(-4px)'"
+                                onmouseout="this.style.transform='none'">
+                                <img src="assets/img/portfolio/nish.png" class="img-fluid" alt="Crochet With Nish"
+                                    style="width:100%;height:220px;object-fit:cover;display:block;">
+                                <div class="portfolio-info"
+                                    style="background:rgba(10,13,22,0.93);backdrop-filter:blur(8px);">
+                                    <span
+                                        style="font-size:11px;font-weight:700;letter-spacing:1px;color:#54c5f8;text-transform:uppercase;">Mobile</span>
+                                    <h4 style="color:#fff;margin:6px 0 4px;font-size:1rem;font-weight:700;">Crochet With
+                                        Nish</h4>
+                                    <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;">E-commerce Mobile
+                                        App — Flutter</p>
+                                    <div style="display:flex;gap:10px;margin-top:12px;">
+                                        <a href="assets/img/portfolio/nish.png" data-gallery="portfolio-gallery-app"
+                                            class="glightbox preview-link"
+                                            style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
+                                                class="bi bi-zoom-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <div style="border-radius:16px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.07);transition:transform 0.3s;"
+                                onmouseover="this.style.transform='translateY(-4px)'"
+                                onmouseout="this.style.transform='none'">
+                                <img src="assets/img/portfolio/lms.png" class="img-fluid"
+                                    alt="Learning Management System"
+                                    style="width:100%;height:220px;object-fit:cover;display:block;">
+                                <div class="portfolio-info"
+                                    style="background:rgba(10,13,22,0.93);backdrop-filter:blur(8px);">
+                                    <span
+                                        style="font-size:11px;font-weight:700;letter-spacing:1px;color:#3b82f6;text-transform:uppercase;">Web</span>
+                                    <h4 style="color:#fff;margin:6px 0 4px;font-size:1rem;font-weight:700;">Learning
+                                        Management System</h4>
+                                    <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;">Custom educational
+                                        platform — Laravel</p>
+                                    <div style="display:flex;gap:10px;margin-top:12px;">
+                                        <a href="assets/img/portfolio/lms.png" data-gallery="portfolio-gallery-product"
+                                            class="glightbox preview-link"
+                                            style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
+                                                class="bi bi-zoom-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact section" style="padding:90px 0;background:#0a0d16;">
+            <div class="container" data-aos="fade-up">
+                <div style="text-align:center;margin-bottom:60px;">
+                    <span
+                        style="color:#63b3ed;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:600;">Get
+                        In Touch</span>
+                    <h2 style="font-size:2.4rem;font-weight:800;color:#fff;margin-top:10px;">Contact Me</h2>
+                    <div
+                        style="width:50px;height:3px;background:linear-gradient(90deg,#3b82f6,#7c3aed);margin:16px auto 0;border-radius:10px;">
+                    </div>
+                    <p style="color:rgba(255,255,255,0.45);margin-top:14px;font-size:15px;">Open for project
+                        collaborations and internship opportunities.</p>
+                </div>
+
+                <div class="row gy-5">
+                    <div class="col-lg-5" data-aos="fade-right">
+                        <div style="display:flex;flex-direction:column;gap:20px;">
+                            <div
+                                style="display:flex;align-items:center;gap:18px; background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07); border-radius:14px;padding:22px;">
+                                <div
+                                    style="width:48px;height:48px;border-radius:12px;background:#3b82f618; display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                    <i class="bi bi-geo-alt" style="font-size:1.3rem;color:#3b82f6;"></i>
+                                </div>
+                                <div>
+                                    <p
+                                        style="color:rgba(255,255,255,0.4);font-size:12px;margin:0;text-transform:uppercase;letter-spacing:1px;">
+                                        Address</p>
+                                    <p style="color:#fff;font-size:14px;margin:4px 0 0;font-weight:500;">Sylhet,
+                                        Bangladesh</p>
+                                </div>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;gap:18px; background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07); border-radius:14px;padding:22px;">
+                                <div
+                                    style="width:48px;height:48px;border-radius:12px;background:#9f7aea18; display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                    <i class="bi bi-telephone" style="font-size:1.3rem;color:#9f7aea;"></i>
+                                </div>
+                                <div>
+                                    <p
+                                        style="color:rgba(255,255,255,0.4);font-size:12px;margin:0;text-transform:uppercase;letter-spacing:1px;">
+                                        Call Me</p>
+                                    <p style="color:#fff;font-size:14px;margin:4px 0 0;font-weight:500;">+8801748461142
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;gap:18px; background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07); border-radius:14px;padding:22px;">
+                                <div
+                                    style="width:48px;height:48px;border-radius:12px;background:#63b3ed18; display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                    <i class="bi bi-envelope" style="font-size:1.3rem;color:#63b3ed;"></i>
+                                </div>
+                                <div>
+                                    <p
+                                        style="color:rgba(255,255,255,0.4);font-size:12px;margin:0;text-transform:uppercase;letter-spacing:1px;">
+                                        Email Me</p>
+                                    <p style="color:#fff;font-size:14px;margin:4px 0 0;font-weight:500;">
+                                        kaziabdulhalisunny01@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7" data-aos="fade-left">
+                        <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST"
+                            style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:36px;">
+                            <div class="row gy-4">
+                                <div class="col-md-6">
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required
+                                        style="background:rgba(255, 255, 255, 0.06);border:1px solid rgba(255,255,255,0.1); color:#fff;border-radius:10px;padding:13px 16px;font-size:14px;">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" name="email" class="form-control" placeholder="Your Email"
+                                        required
+                                        style="background:rgb(247, 242, 242);border:1px solid rgba(255,255,255,0.1); color:#111;border-radius:10px;padding:13px 16px;font-size:14px;">
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" name="subject" class="form-control" placeholder="Subject"
+                                        required
+                                        style="background:rgba(255, 255, 255, 0.98);border:1px solid rgba(255,255,255,0.1); color:#111;border-radius:10px;padding:13px 16px;font-size:14px;">
+                                </div>
+                                <div class="col-md-12">
+                                    <textarea name="message" class="form-control" rows="5" placeholder="Your Message"
+                                        required
+                                        style="background:rgb(251, 247, 247);border:1px solid rgba(255,255,255,0.1); color:#111;border-radius:10px;padding:13px 16px;font-size:14px;resize:none;"></textarea>
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="submit"
+                                        style="width:100%;padding:14px;border-radius:10px;border:none;cursor:pointer; background:linear-gradient(135deg,#3b82f6,#7c3aed); color:#fff;font-size:15px;font-weight:700; box-shadow:0 4px 24px rgba(99,102,241,0.3);transition:opacity 0.2s;"
+                                        onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+                                        Send Message &nbsp;<i class="bi bi-send"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 32px 0; text-align: center; background:var(--bg-primary);">
+        <div class="container">
+            <p style="color: rgba(255,255,255,0.35); font-size: 14px; margin: 0;">
+                © 2026 <span style="color: #63b3ed; font-weight: 600;">Kazi Abdul Halim Sunny</span>. Built with ❤️
+            </p>
+        </div>
+    </footer>
+
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const themeBtn = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            const header = document.getElementById('header');
+
+            if (themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    document.body.classList.toggle('light-mode');
+                    const isLight = document.body.classList.contains('light-mode');
+                    themeIcon.className = isLight ? 'bi bi-moon-fill' : 'bi bi-sun-fill';
+                    if (header) header.style.background = isLight ? 'rgba(255,255,255,0.95)' : '';
+                });
+            }
+
+            document.addEventListener('click', function (e) {
+                let bubble = document.createElement('div');
+                bubble.classList.add('click-bubble');
+                bubble.style.left = e.clientX + 'px';
+                bubble.style.top = e.clientY + 'px';
+                document.body.appendChild(bubble);
+                setTimeout(() => bubble.remove(), 700);
+            });
+        });
+    </script>
+</body>
+
+</html>
