@@ -8,14 +8,14 @@
     <meta name="description"
         content="Portfolio of Kazi Abdul Halim Sunny — Full-Stack Developer, Flutter & AI Engineer from Sylhet, Bangladesh.">
 
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -152,6 +152,33 @@
             .header-actions {
                 gap: 15px !important;
             }
+
+            #nav-list {
+                display: none !important;
+            }
+
+            /* MOBILE DROPDOWN MENU */
+            body.mobile-nav-active #nav-list {
+                display: flex !important;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background: var(--bg-secondary);
+                border: 1px solid var(--border-color);
+                padding: 20px;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                z-index: 9999;
+                min-width: 220px;
+                align-items: flex-start !important;
+                gap: 15px !important;
+            }
+
+            body.light-mode.mobile-nav-active #nav-list {
+                background: #ffffff;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
         }
 
         /* ===== MOBILE MENU & HERO TEXT FIX ===== */
@@ -165,10 +192,7 @@
 
         body.light-mode #hero h1,
         body.light-mode #hero p,
-        body.light-mode #hero .slow-typed {
-            color: #ffffff !important;
-        }
-
+        body.light-mode #hero .slow-typed,
         body.light-mode #hero a {
             color: #ffffff !important;
         }
@@ -361,9 +385,9 @@
                                 </div>
                             </div>
 
-                            <a href="assets/kazi-sunny-cv.pdf" download="Kazi_Sunny_CV.pdf"
+                            <a href="assets/kazi-sunny-cv.pdf" target="_blank"
                                 style="display:inline-flex;align-items:center;gap:8px;margin-top:20px; background:linear-gradient(135deg,#3b82f6,#7c3aed); color:#fff;padding:11px 28px;border-radius:50px; font-size:14px;font-weight:600;text-decoration:none; box-shadow:0 4px 20px rgba(99,102,241,0.3);">
-                                <i class="bi bi-download"></i> Download CV
+                                <i class="bi bi-file-earmark-pdf"></i> View / Download CV
                             </a>
                         </div>
                     </div>
@@ -470,8 +494,7 @@
                     <div class="col-lg-6" data-aos="fade-right">
                         <h4
                             style="color:#63b3ed;font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:10px;">
-                            <i class="bi bi-mortarboard-fill"></i> Education
-                        </h4>
+                            <i class="bi bi-mortarboard-fill"></i> Education</h4>
                         <div style="position:relative;padding-left:28px;border-left:2px solid rgba(99,179,237,0.2);">
                             <div style="margin-bottom:28px;position:relative;">
                                 <div
@@ -485,8 +508,7 @@
                                     <h5 style="color:#fff;font-weight:700;font-size:1rem;margin:8px 0 4px;">B.Sc. in
                                         Software Engineering</h5>
                                     <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:8px;">
-                                        <em>Metropolitan University, Sylhet</em>
-                                    </p>
+                                        <em>Metropolitan University, Sylhet</em></p>
                                     <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;">CGPA
                                         3.9+ · Vice Chancellor Scholarship · Chairman's Scholarship</p>
                                 </div>
@@ -513,8 +535,7 @@
                     <div class="col-lg-6" data-aos="fade-left">
                         <h4
                             style="color:#9f7aea;font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:10px;">
-                            <i class="bi bi-briefcase-fill"></i> Experience & Leadership
-                        </h4>
+                            <i class="bi bi-briefcase-fill"></i> Experience & Leadership</h4>
                         <div style="position:relative;padding-left:28px;border-left:2px solid rgba(159,122,234,0.2);">
                             <div style="margin-bottom:28px;position:relative;">
                                 <div
@@ -527,8 +548,7 @@
                                     <h5 style="color:#fff;font-weight:700;font-size:0.95rem;margin:8px 0 4px;">General
                                         Secretary & Co-curricular Secretary</h5>
                                     <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:8px;">
-                                        <em>Software Innovators Forum, Metropolitan University</em>
-                                    </p>
+                                        <em>Software Innovators Forum, Metropolitan University</em></p>
                                     <ul
                                         style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;padding-left:16px;">
                                         <li>Lead & coordinate departmental events and tech seminars.</li>
@@ -548,8 +568,7 @@
                                     <h5 style="color:#fff;font-weight:700;font-size:0.95rem;margin:8px 0 4px;">Content
                                         Writer (C & Python)</h5>
                                     <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:8px;">
-                                        <em>Metropolitan University Programming Olympiad</em>
-                                    </p>
+                                        <em>Metropolitan University Programming Olympiad</em></p>
                                     <ul
                                         style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;padding-left:16px;">
                                         <li>Prepared slide content & technical materials for students.</li>
@@ -696,8 +715,7 @@
                         style="width:50px;height:3px;background:linear-gradient(90deg,#3b82f6,#7c3aed);margin:16px auto 0;border-radius:10px;">
                     </div>
                     <p style="color:rgba(255,255,255,0.45);margin-top:14px;font-size:15px;">Full-stack platforms, mobile
-                        apps,
-                        and AI integrations.</p>
+                        apps, and AI integrations.</p>
                 </div>
 
                 <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
@@ -708,16 +726,13 @@
                             All</li>
                         <li data-filter=".filter-app"
                             style="padding:8px 22px;border-radius:50px;font-size:14px;font-weight:600;cursor:pointer;">
-                            Mobile
-                            Apps</li>
+                            Mobile Apps</li>
                         <li data-filter=".filter-product"
                             style="padding:8px 22px;border-radius:50px;font-size:14px;font-weight:600;cursor:pointer;">
-                            Web
-                            Systems</li>
+                            Web Systems</li>
                         <li data-filter=".filter-branding"
                             style="padding:8px 22px;border-radius:50px;font-size:14px;font-weight:600;cursor:pointer;">
-                            AI
-                            Projects</li>
+                            AI Projects</li>
                     </ul>
 
                     <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
@@ -726,7 +741,7 @@
                             <div style="border-radius:16px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.07);transition:transform 0.3s;"
                                 onmouseover="this.style.transform='translateY(-4px)'"
                                 onmouseout="this.style.transform='none'">
-                                <img src="assets/img/portfolio/house-rent.png" class="img-fluid"
+                                <img src="assets/img/portfolio/house-rent.png" loading="lazy" class="img-fluid"
                                     alt="House Rent Project"
                                     style="width:100%;height:220px;object-fit:cover;display:block;">
                                 <div class="portfolio-info"
@@ -734,17 +749,15 @@
                                     <span
                                         style="font-size:11px;font-weight:700;letter-spacing:1px;color:#3b82f6;text-transform:uppercase;">Web</span>
                                     <h4 style="color:#fff;margin:6px 0 4px;font-size:1rem;font-weight:700;">House Rent
-                                        Project
-                                    </h4>
+                                        Project</h4>
                                     <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;">Collaborative
-                                        Full-Stack Web
-                                        App</p>
+                                        Full-Stack Web App</p>
                                     <div style="display:flex;gap:10px;margin-top:12px;">
                                         <a href="assets/img/portfolio/house-rent.png"
                                             data-gallery="portfolio-gallery-product" class="glightbox preview-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-zoom-in"></i></a>
-                                        <a href="https://github.com/kazihalim00/House-Rent" target="_blank"
+                                        <a href="https://github.com/আপনার_ইউজারনেম/house-rent" target="_blank"
                                             class="details-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-github"></i></a>
@@ -757,22 +770,21 @@
                             <div style="border-radius:16px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.07);transition:transform 0.3s;"
                                 onmouseover="this.style.transform='translateY(-4px)'"
                                 onmouseout="this.style.transform='none'">
-                                <img src="assets/img/portfolio/noor-ai.png" class="img-fluid" alt="Noor AI"
-                                    style="width:100%;height:220px;object-fit:cover;display:block;">
+                                <img src="assets/img/portfolio/noor-ai.png" loading="lazy" class="img-fluid"
+                                    alt="Noor AI" style="width:100%;height:220px;object-fit:cover;display:block;">
                                 <div class="portfolio-info"
                                     style="background:rgba(10,13,22,0.93);backdrop-filter:blur(8px);">
                                     <span
                                         style="font-size:11px;font-weight:700;letter-spacing:1px;color:#9f7aea;text-transform:uppercase;">AI</span>
                                     <h4 style="color:#fff;margin:6px 0 4px;font-size:1rem;font-weight:700;">Noor AI</h4>
                                     <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;">AI Chatbot — Python
-                                        &
-                                        Streamlit</p>
+                                        & Streamlit</p>
                                     <div style="display:flex;gap:10px;margin-top:12px;">
                                         <a href="assets/img/portfolio/noor-ai.png"
                                             data-gallery="portfolio-gallery-branding" class="glightbox preview-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-zoom-in"></i></a>
-                                        <a href="https://github.com/kazihalim00/noor-ai-chatbot" target="_blank"
+                                        <a href="https://github.com/আপনার_ইউজারনেম/noor-ai" target="_blank"
                                             class="details-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-github"></i></a>
@@ -785,7 +797,7 @@
                             <div style="border-radius:16px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.07);transition:transform 0.3s;"
                                 onmouseover="this.style.transform='translateY(-4px)'"
                                 onmouseout="this.style.transform='none'">
-                                <img src="assets/img/portfolio/library.png" class="img-fluid"
+                                <img src="assets/img/portfolio/library.png" loading="lazy" class="img-fluid"
                                     alt="Library Management System"
                                     style="width:100%;height:220px;object-fit:cover;display:block;">
                                 <div class="portfolio-info"
@@ -793,18 +805,16 @@
                                     <span
                                         style="font-size:11px;font-weight:700;letter-spacing:1px;color:#3b82f6;text-transform:uppercase;">Web</span>
                                     <h4 style="color:#fff;margin:6px 0 4px;font-size:1rem;font-weight:700;">Library
-                                        Management
-                                        System</h4>
+                                        Management System</h4>
                                     <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;">Robust backend with
-                                        Laravel
-                                    </p>
+                                        Laravel</p>
                                     <div style="display:flex;gap:10px;margin-top:12px;">
                                         <a href="assets/img/portfolio/library.png"
                                             data-gallery="portfolio-gallery-product" class="glightbox preview-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-zoom-in"></i></a>
-                                        <a href="https://github.com/kazihalim00/Library-Management-System"
-                                            target="_blank" class="details-link"
+                                        <a href="https://github.com/আপনার_ইউজারনেম/library-management" target="_blank"
+                                            class="details-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-github"></i></a>
                                     </div>
@@ -816,24 +826,23 @@
                             <div style="border-radius:16px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.07);transition:transform 0.3s;"
                                 onmouseover="this.style.transform='translateY(-4px)'"
                                 onmouseout="this.style.transform='none'">
-                                <img src="assets/img/portfolio/nish.png" class="img-fluid" alt="Crochet With Nish"
+                                <img src="assets/img/portfolio/nish.png" loading="lazy" class="img-fluid"
+                                    alt="Crochet With Nish"
                                     style="width:100%;height:220px;object-fit:cover;display:block;">
                                 <div class="portfolio-info"
                                     style="background:rgba(10,13,22,0.93);backdrop-filter:blur(8px);">
                                     <span
                                         style="font-size:11px;font-weight:700;letter-spacing:1px;color:#54c5f8;text-transform:uppercase;">Mobile</span>
                                     <h4 style="color:#fff;margin:6px 0 4px;font-size:1rem;font-weight:700;">Crochet With
-                                        Nish
-                                    </h4>
+                                        Nish</h4>
                                     <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;">E-commerce Mobile
-                                        App —
-                                        Flutter</p>
+                                        App — Flutter</p>
                                     <div style="display:flex;gap:10px;margin-top:12px;">
                                         <a href="assets/img/portfolio/nish.png" data-gallery="portfolio-gallery-app"
                                             class="glightbox preview-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-zoom-in"></i></a>
-                                        <a href="https://github.com/kazihalim00/crochet_with_nish" target="_blank"
+                                        <a href="https://github.com/আপনার_ইউজারনেম/crochet-with-nish" target="_blank"
                                             class="details-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-github"></i></a>
@@ -846,7 +855,7 @@
                             <div style="border-radius:16px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.07);transition:transform 0.3s;"
                                 onmouseover="this.style.transform='translateY(-4px)'"
                                 onmouseout="this.style.transform='none'">
-                                <img src="assets/img/portfolio/lms.png" class="img-fluid"
+                                <img src="assets/img/portfolio/lms.png" loading="lazy" class="img-fluid"
                                     alt="Learning Management System"
                                     style="width:100%;height:220px;object-fit:cover;display:block;">
                                 <div class="portfolio-info"
@@ -854,17 +863,15 @@
                                     <span
                                         style="font-size:11px;font-weight:700;letter-spacing:1px;color:#3b82f6;text-transform:uppercase;">Web</span>
                                     <h4 style="color:#fff;margin:6px 0 4px;font-size:1rem;font-weight:700;">Learning
-                                        Management
-                                        System</h4>
+                                        Management System</h4>
                                     <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;">Custom educational
-                                        platform
-                                        — Laravel</p>
+                                        platform — Laravel</p>
                                     <div style="display:flex;gap:10px;margin-top:12px;">
                                         <a href="assets/img/portfolio/lms.png" data-gallery="portfolio-gallery-product"
                                             class="glightbox preview-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-zoom-in"></i></a>
-                                        <a href="https://github.com/kazihalim00/skillpath-lms" target="_blank"
+                                        <a href="https://github.com/আপনার_ইউজারনেম/lms" target="_blank"
                                             class="details-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-github"></i></a>
@@ -981,7 +988,7 @@
     <footer style="padding: 32px 0; text-align: center; background:var(--bg-primary);">
         <div class="container">
             <p style="color: rgba(255,255,255,0.35); font-size: 14px; margin: 0;">
-                © 2026 <span style="color: #63b3ed; font-weight: 600;">Kazi Abdul Halim Sunny</span>. ❤️
+                © 2026 <span style="color: #63b3ed; font-weight: 600;">Kazi Abdul Halim Sunny</span>. Built with ❤️
             </p>
         </div>
     </footer>
@@ -990,20 +997,21 @@
         <i class="bi bi-arrow-up-short"></i>
     </a>
 
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/typed.js/typed.umd.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script defer src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script defer src="assets/vendor/aos/aos.js"></script>
+    <script defer src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script defer src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script defer src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script defer src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script defer src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script defer src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script defer src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-    <script src="assets/js/main.js"></script>
+    <script defer src="assets/js/main.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Theme Toggle Logic
             const themeBtn = document.getElementById('theme-toggle');
             const themeIcon = document.getElementById('theme-icon');
             const header = document.getElementById('header');
@@ -1017,6 +1025,7 @@
                 });
             }
 
+            // Click Bubble Effect
             document.addEventListener('click', function (e) {
                 let bubble = document.createElement('div');
                 bubble.classList.add('click-bubble');
@@ -1024,6 +1033,30 @@
                 bubble.style.top = e.clientY + 'px';
                 document.body.appendChild(bubble);
                 setTimeout(() => bubble.remove(), 700);
+            });
+
+            // Mobile Menu Toggle
+            const mobileNavBtn = document.getElementById('mobile-nav-btn');
+            const navList = document.getElementById('nav-list');
+
+            if (mobileNavBtn) {
+                mobileNavBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    document.body.classList.toggle('mobile-nav-active');
+                    this.classList.toggle('bi-list');
+                    this.classList.toggle('bi-x');
+                });
+            }
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function (e) {
+                if (document.body.classList.contains('mobile-nav-active') && e.target !== mobileNavBtn && (!navList || !navList.contains(e.target))) {
+                    document.body.classList.remove('mobile-nav-active');
+                    if (mobileNavBtn) {
+                        mobileNavBtn.classList.add('bi-list');
+                        mobileNavBtn.classList.remove('bi-x');
+                    }
+                }
             });
         });
     </script>
