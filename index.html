@@ -137,13 +137,21 @@
             color: #1a1f35 !important;
         }
 
-        body.light-mode #theme-toggle {
-            background: rgba(0, 0, 0, 0.08) !important;
-            color: #1a1f35 !important;
-        }
-
         body.light-mode .hero.section {
             background: #1a1f35 !important;
+        }
+
+        /* ===== MOBILE RESPONSIVE FIXES ===== */
+        @media (max-width: 991px) {
+            .hero-bg-img {
+                transform: translateX(0) !important;
+                width: 100% !important;
+                object-position: center top !important;
+            }
+
+            .header-actions {
+                gap: 15px !important;
+            }
         }
     </style>
 </head>
@@ -158,38 +166,41 @@
                     style="margin:0; font-size:1.4rem; font-weight:800; letter-spacing:2px; background: linear-gradient(135deg, #63b3ed, #9f7aea); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
                     K.A.H.S</h1>
             </a>
-            <nav id="navmenu" class="navmenu" style="position:relative;">
-                <ul class="d-flex align-items-center" id="nav-list"
-                    style="list-style:none; margin:0; padding:0; gap:4px;">
-                    <li><a href="#hero" class="active">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Projects</a></li>
-                    <li>
-                        <a href="#courses"
-                            style="background: linear-gradient(135deg, #3b82f6, #7c3aed); color: #fff !important; padding: 7px 18px !important; border-radius: 50px; font-weight: 600; font-size: 13.5px; transition: opacity 0.2s;"
-                            onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">🎓 Courses</a>
-                    </li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li class="ms-2" style="list-style:none;">
-                        <button id="theme-toggle" class="btn border-0" aria-label="Toggle theme"
-                            style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s;"
-                            onmouseover="this.style.background='rgba(99,179,237,0.2)'"
-                            onmouseout="this.style.background='rgba(255,255,255,0.08)'">
-                            <i class="bi bi-sun-fill" id="theme-icon" style="font-size:15px;"></i>
-                        </button>
-                    </li>
-                </ul>
-                <i class="mobile-nav-toggle d-xl-none bi bi-list" id="mobile-nav-btn"
-                    style="font-size:1.6rem; cursor:pointer;"></i>
-            </nav>
+
+            <div class="header-actions d-flex align-items-center">
+                <button id="theme-toggle" class="btn border-0 me-3" aria-label="Toggle theme"
+                    style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s;"
+                    onmouseover="this.style.background='rgba(99,179,237,0.2)'"
+                    onmouseout="this.style.background='rgba(255,255,255,0.08)'">
+                    <i class="bi bi-sun-fill" id="theme-icon" style="font-size:15px;"></i>
+                </button>
+
+                <nav id="navmenu" class="navmenu" style="position:relative;">
+                    <ul class="d-flex align-items-center" id="nav-list"
+                        style="list-style:none; margin:0; padding:0; gap:4px;">
+                        <li><a href="#hero" class="active">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Projects</a></li>
+                        <li>
+                            <a href="#courses"
+                                style="background: linear-gradient(135deg, #3b82f6, #7c3aed); color: #fff !important; padding: 7px 18px !important; border-radius: 50px; font-weight: 600; font-size: 13.5px; transition: opacity 0.2s;"
+                                onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">🎓
+                                Courses</a>
+                        </li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    <i class="mobile-nav-toggle d-xl-none bi bi-list" id="mobile-nav-btn"
+                        style="font-size:1.6rem; cursor:pointer;"></i>
+                </nav>
+            </div>
         </div>
     </header>
 
     <main class="main">
         <section id="hero" class="hero section dark-background"
             style="position:relative; overflow:hidden; min-height:100vh; display:flex; align-items:center;">
-            <img src="assets/img/kazi.jpeg" alt="Kazi Abdul Halim Sunny" data-aos="fade-in"
+            <img src="assets/img/kazi.jpeg" alt="Kazi Abdul Halim Sunny" class="hero-bg-img" data-aos="fade-in"
                 style="position:absolute; inset:0; width:90%; height:90%; object-fit:cover; object-position:center 15%; transform:translateX(200px); z-index:0; opacity:1;">
             <div
                 style="position:absolute;inset:0;z-index:1; background:linear-gradient(to right, rgba(10,13,22,0.96) 0%, rgba(10,13,22,0.75) 42%, rgba(10,13,22,0.15) 65%, rgba(10,13,22,0.5) 100%);">
@@ -330,6 +341,7 @@
                                         University, Sylhet</span>
                                 </div>
                             </div>
+
                             <a href="assets/kazi-sunny-cv.pdf" download="Kazi_Sunny_CV.pdf"
                                 style="display:inline-flex;align-items:center;gap:8px;margin-top:20px; background:linear-gradient(135deg,#3b82f6,#7c3aed); color:#fff;padding:11px 28px;border-radius:50px; font-size:14px;font-weight:600;text-decoration:none; box-shadow:0 4px 20px rgba(99,102,241,0.3);">
                                 <i class="bi bi-download"></i> Download CV
@@ -439,7 +451,8 @@
                     <div class="col-lg-6" data-aos="fade-right">
                         <h4
                             style="color:#63b3ed;font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:10px;">
-                            <i class="bi bi-mortarboard-fill"></i> Education</h4>
+                            <i class="bi bi-mortarboard-fill"></i> Education
+                        </h4>
                         <div style="position:relative;padding-left:28px;border-left:2px solid rgba(99,179,237,0.2);">
                             <div style="margin-bottom:28px;position:relative;">
                                 <div
@@ -453,7 +466,8 @@
                                     <h5 style="color:#fff;font-weight:700;font-size:1rem;margin:8px 0 4px;">B.Sc. in
                                         Software Engineering</h5>
                                     <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:8px;">
-                                        <em>Metropolitan University, Sylhet</em></p>
+                                        <em>Metropolitan University, Sylhet</em>
+                                    </p>
                                     <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;">CGPA
                                         3.9+ · Vice Chancellor Scholarship · Chairman's Scholarship</p>
                                 </div>
@@ -480,7 +494,8 @@
                     <div class="col-lg-6" data-aos="fade-left">
                         <h4
                             style="color:#9f7aea;font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:10px;">
-                            <i class="bi bi-briefcase-fill"></i> Experience & Leadership</h4>
+                            <i class="bi bi-briefcase-fill"></i> Experience & Leadership
+                        </h4>
                         <div style="position:relative;padding-left:28px;border-left:2px solid rgba(159,122,234,0.2);">
                             <div style="margin-bottom:28px;position:relative;">
                                 <div
@@ -493,7 +508,8 @@
                                     <h5 style="color:#fff;font-weight:700;font-size:0.95rem;margin:8px 0 4px;">General
                                         Secretary & Co-curricular Secretary</h5>
                                     <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:8px;">
-                                        <em>Software Innovators Forum, Metropolitan University</em></p>
+                                        <em>Software Innovators Forum, Metropolitan University</em>
+                                    </p>
                                     <ul
                                         style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;padding-left:16px;">
                                         <li>Lead & coordinate departmental events and tech seminars.</li>
@@ -513,7 +529,8 @@
                                     <h5 style="color:#fff;font-weight:700;font-size:0.95rem;margin:8px 0 4px;">Content
                                         Writer (C & Python)</h5>
                                     <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:8px;">
-                                        <em>Metropolitan University Programming Olympiad</em></p>
+                                        <em>Metropolitan University Programming Olympiad</em>
+                                    </p>
                                     <ul
                                         style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;padding-left:16px;">
                                         <li>Prepared slide content & technical materials for students.</li>
@@ -660,7 +677,8 @@
                         style="width:50px;height:3px;background:linear-gradient(90deg,#3b82f6,#7c3aed);margin:16px auto 0;border-radius:10px;">
                     </div>
                     <p style="color:rgba(255,255,255,0.45);margin-top:14px;font-size:15px;">Full-stack platforms, mobile
-                        apps, and AI integrations.</p>
+                        apps,
+                        and AI integrations.</p>
                 </div>
 
                 <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
@@ -671,16 +689,20 @@
                             All</li>
                         <li data-filter=".filter-app"
                             style="padding:8px 22px;border-radius:50px;font-size:14px;font-weight:600;cursor:pointer;">
-                            Mobile Apps</li>
+                            Mobile
+                            Apps</li>
                         <li data-filter=".filter-product"
                             style="padding:8px 22px;border-radius:50px;font-size:14px;font-weight:600;cursor:pointer;">
-                            Web Systems</li>
+                            Web
+                            Systems</li>
                         <li data-filter=".filter-branding"
                             style="padding:8px 22px;border-radius:50px;font-size:14px;font-weight:600;cursor:pointer;">
-                            AI Projects</li>
+                            AI
+                            Projects</li>
                     </ul>
 
                     <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
                             <div style="border-radius:16px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.07);transition:transform 0.3s;"
                                 onmouseover="this.style.transform='translateY(-4px)'"
@@ -693,14 +715,20 @@
                                     <span
                                         style="font-size:11px;font-weight:700;letter-spacing:1px;color:#3b82f6;text-transform:uppercase;">Web</span>
                                     <h4 style="color:#fff;margin:6px 0 4px;font-size:1rem;font-weight:700;">House Rent
-                                        Project</h4>
+                                        Project
+                                    </h4>
                                     <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;">Collaborative
-                                        Full-Stack Web App</p>
+                                        Full-Stack Web
+                                        App</p>
                                     <div style="display:flex;gap:10px;margin-top:12px;">
                                         <a href="assets/img/portfolio/house-rent.png"
                                             data-gallery="portfolio-gallery-product" class="glightbox preview-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-zoom-in"></i></a>
+                                        <a href="https://github.com/kazihalim00/House-Rent" target="_blank"
+                                            class="details-link"
+                                            style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
+                                                class="bi bi-github"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -718,12 +746,17 @@
                                         style="font-size:11px;font-weight:700;letter-spacing:1px;color:#9f7aea;text-transform:uppercase;">AI</span>
                                     <h4 style="color:#fff;margin:6px 0 4px;font-size:1rem;font-weight:700;">Noor AI</h4>
                                     <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;">AI Chatbot — Python
-                                        & Streamlit</p>
+                                        &
+                                        Streamlit</p>
                                     <div style="display:flex;gap:10px;margin-top:12px;">
                                         <a href="assets/img/portfolio/noor-ai.png"
                                             data-gallery="portfolio-gallery-branding" class="glightbox preview-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-zoom-in"></i></a>
+                                        <a href="https://github.com/kazihalim00/noor-ai-chatbot" target="_blank"
+                                            class="details-link"
+                                            style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
+                                                class="bi bi-github"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -741,14 +774,20 @@
                                     <span
                                         style="font-size:11px;font-weight:700;letter-spacing:1px;color:#3b82f6;text-transform:uppercase;">Web</span>
                                     <h4 style="color:#fff;margin:6px 0 4px;font-size:1rem;font-weight:700;">Library
-                                        Management System</h4>
+                                        Management
+                                        System</h4>
                                     <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;">Robust backend with
-                                        Laravel</p>
+                                        Laravel
+                                    </p>
                                     <div style="display:flex;gap:10px;margin-top:12px;">
                                         <a href="assets/img/portfolio/library.png"
                                             data-gallery="portfolio-gallery-product" class="glightbox preview-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-zoom-in"></i></a>
+                                        <a href="https://github.com/kazihalim00/Library-Management-System"
+                                            target="_blank" class="details-link"
+                                            style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
+                                                class="bi bi-github"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -765,14 +804,20 @@
                                     <span
                                         style="font-size:11px;font-weight:700;letter-spacing:1px;color:#54c5f8;text-transform:uppercase;">Mobile</span>
                                     <h4 style="color:#fff;margin:6px 0 4px;font-size:1rem;font-weight:700;">Crochet With
-                                        Nish</h4>
+                                        Nish
+                                    </h4>
                                     <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;">E-commerce Mobile
-                                        App — Flutter</p>
+                                        App —
+                                        Flutter</p>
                                     <div style="display:flex;gap:10px;margin-top:12px;">
                                         <a href="assets/img/portfolio/nish.png" data-gallery="portfolio-gallery-app"
                                             class="glightbox preview-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-zoom-in"></i></a>
+                                        <a href="https://github.com/kazihalim00/crochet_with_nish" target="_blank"
+                                            class="details-link"
+                                            style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
+                                                class="bi bi-github"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -790,18 +835,25 @@
                                     <span
                                         style="font-size:11px;font-weight:700;letter-spacing:1px;color:#3b82f6;text-transform:uppercase;">Web</span>
                                     <h4 style="color:#fff;margin:6px 0 4px;font-size:1rem;font-weight:700;">Learning
-                                        Management System</h4>
+                                        Management
+                                        System</h4>
                                     <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;">Custom educational
-                                        platform — Laravel</p>
+                                        platform
+                                        — Laravel</p>
                                     <div style="display:flex;gap:10px;margin-top:12px;">
                                         <a href="assets/img/portfolio/lms.png" data-gallery="portfolio-gallery-product"
                                             class="glightbox preview-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-zoom-in"></i></a>
+                                        <a href="https://github.com/kazihalim00/skillpath-lms" target="_blank"
+                                            class="details-link"
+                                            style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
+                                                class="bi bi-github"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -910,7 +962,7 @@
     <footer style="padding: 32px 0; text-align: center; background:var(--bg-primary);">
         <div class="container">
             <p style="color: rgba(255,255,255,0.35); font-size: 14px; margin: 0;">
-                © 2026 <span style="color: #63b3ed; font-weight: 600;">Kazi Abdul Halim Sunny</span>. Built with ❤️
+                © 2026 <span style="color: #63b3ed; font-weight: 600;">Kazi Abdul Halim Sunny</span>. ❤️
             </p>
         </div>
     </footer>
