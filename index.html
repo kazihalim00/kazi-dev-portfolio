@@ -141,8 +141,8 @@
             background: #1a1f35 !important;
         }
 
-        /* ===== MOBILE RESPONSIVE FIXES ===== */
-        @media (max-width: 991px) {
+        /* ===== MOBILE RESPONSIVE & MENU FIXES ===== */
+        @media (max-width: 1199px) {
             .hero-bg-img {
                 transform: translateX(0) !important;
                 width: 100% !important;
@@ -153,41 +153,46 @@
                 gap: 15px !important;
             }
 
+            /* Hide desktop menu items */
             #nav-list {
                 display: none !important;
             }
 
-            /* MOBILE DROPDOWN MENU */
+            /* Show Mobile Dropdown Menu */
             body.mobile-nav-active #nav-list {
                 display: flex !important;
                 flex-direction: column;
-                position: absolute;
-                top: 70px;
+                position: fixed;
+                top: 80px;
                 right: 20px;
+                left: 20px;
                 background: var(--bg-secondary);
                 border: 1px solid var(--border-color);
-                padding: 20px;
+                padding: 25px 20px;
                 border-radius: 12px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-                z-index: 9999;
-                min-width: 220px;
-                align-items: flex-start !important;
-                gap: 15px !important;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+                z-index: 99999;
+                align-items: center !important;
+                gap: 20px !important;
             }
 
             body.light-mode.mobile-nav-active #nav-list {
                 background: #ffffff;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
             }
-        }
 
-        /* ===== MOBILE MENU & HERO TEXT FIX ===== */
-        .mobile-nav-toggle {
-            color: #ffffff !important;
-        }
+            /* Ensure Toggle Icon is visible and clickable */
+            .mobile-nav-toggle {
+                display: block !important;
+                color: #ffffff !important;
+                font-size: 32px !important;
+                z-index: 100000;
+                padding: 5px;
+            }
 
-        body.light-mode .mobile-nav-toggle {
-            color: #1a1f35 !important;
+            body.light-mode .mobile-nav-toggle {
+                color: #1a1f35 !important;
+            }
         }
 
         body.light-mode #hero h1,
@@ -211,30 +216,30 @@
             </a>
 
             <div class="header-actions d-flex align-items-center">
-                <button id="theme-toggle" class="btn border-0 me-3" aria-label="Toggle theme"
-                    style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s;"
+                <button id="theme-toggle" class="btn border-0 me-2" aria-label="Toggle theme"
+                    style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s;"
                     onmouseover="this.style.background='rgba(99,179,237,0.2)'"
                     onmouseout="this.style.background='rgba(255,255,255,0.08)'">
-                    <i class="bi bi-sun-fill" id="theme-icon" style="font-size:15px;"></i>
+                    <i class="bi bi-sun-fill" id="theme-icon" style="font-size:18px;"></i>
                 </button>
 
-                <nav id="navmenu" class="navmenu" style="position:relative;">
+                <nav id="navmenu" class="navmenu d-flex align-items-center" style="position:relative;">
                     <ul class="d-flex align-items-center" id="nav-list"
                         style="list-style:none; margin:0; padding:0; gap:4px;">
-                        <li><a href="#hero" class="active">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#portfolio">Projects</a></li>
+                        <li><a href="#hero" class="active mobile-nav-link">Home</a></li>
+                        <li><a href="#about" class="mobile-nav-link">About</a></li>
+                        <li><a href="#services" class="mobile-nav-link">Services</a></li>
+                        <li><a href="#portfolio" class="mobile-nav-link">Projects</a></li>
                         <li>
-                            <a href="#courses"
+                            <a href="#courses" class="mobile-nav-link"
                                 style="background: linear-gradient(135deg, #3b82f6, #7c3aed); color: #fff !important; padding: 7px 18px !important; border-radius: 50px; font-weight: 600; font-size: 13.5px; transition: opacity 0.2s;"
                                 onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">🎓
                                 Courses</a>
                         </li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
                     </ul>
-                    <i class="mobile-nav-toggle d-xl-none bi bi-list" id="mobile-nav-btn"
-                        style="font-size:1.6rem; cursor:pointer;"></i>
+                    <i class="mobile-nav-toggle d-xl-none bi bi-list ms-3" id="mobile-nav-btn"
+                        style="cursor:pointer;"></i>
                 </nav>
             </div>
         </div>
@@ -385,9 +390,9 @@
                                 </div>
                             </div>
 
-                            <a href="assets/kazi-sunny-cv.pdf" target="_blank"
+                            <a href="assets/Kazi_Sunny_CV.pdf" download="Kazi_Sunny_CV.pdf" target="_blank"
                                 style="display:inline-flex;align-items:center;gap:8px;margin-top:20px; background:linear-gradient(135deg,#3b82f6,#7c3aed); color:#fff;padding:11px 28px;border-radius:50px; font-size:14px;font-weight:600;text-decoration:none; box-shadow:0 4px 20px rgba(99,102,241,0.3);">
-                                <i class="bi bi-file-earmark-pdf"></i> View / Download CV
+                                <i class="bi bi-file-earmark-pdf"></i> Download CV
                             </a>
                         </div>
                     </div>
@@ -494,7 +499,8 @@
                     <div class="col-lg-6" data-aos="fade-right">
                         <h4
                             style="color:#63b3ed;font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:10px;">
-                            <i class="bi bi-mortarboard-fill"></i> Education</h4>
+                            <i class="bi bi-mortarboard-fill"></i> Education
+                        </h4>
                         <div style="position:relative;padding-left:28px;border-left:2px solid rgba(99,179,237,0.2);">
                             <div style="margin-bottom:28px;position:relative;">
                                 <div
@@ -508,7 +514,8 @@
                                     <h5 style="color:#fff;font-weight:700;font-size:1rem;margin:8px 0 4px;">B.Sc. in
                                         Software Engineering</h5>
                                     <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:8px;">
-                                        <em>Metropolitan University, Sylhet</em></p>
+                                        <em>Metropolitan University, Sylhet</em>
+                                    </p>
                                     <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;">CGPA
                                         3.9+ · Vice Chancellor Scholarship · Chairman's Scholarship</p>
                                 </div>
@@ -535,7 +542,8 @@
                     <div class="col-lg-6" data-aos="fade-left">
                         <h4
                             style="color:#9f7aea;font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:10px;">
-                            <i class="bi bi-briefcase-fill"></i> Experience & Leadership</h4>
+                            <i class="bi bi-briefcase-fill"></i> Experience & Leadership
+                        </h4>
                         <div style="position:relative;padding-left:28px;border-left:2px solid rgba(159,122,234,0.2);">
                             <div style="margin-bottom:28px;position:relative;">
                                 <div
@@ -548,7 +556,8 @@
                                     <h5 style="color:#fff;font-weight:700;font-size:0.95rem;margin:8px 0 4px;">General
                                         Secretary & Co-curricular Secretary</h5>
                                     <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:8px;">
-                                        <em>Software Innovators Forum, Metropolitan University</em></p>
+                                        <em>Software Innovators Forum, Metropolitan University</em>
+                                    </p>
                                     <ul
                                         style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;padding-left:16px;">
                                         <li>Lead & coordinate departmental events and tech seminars.</li>
@@ -568,7 +577,8 @@
                                     <h5 style="color:#fff;font-weight:700;font-size:0.95rem;margin:8px 0 4px;">Content
                                         Writer (C & Python)</h5>
                                     <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:8px;">
-                                        <em>Metropolitan University Programming Olympiad</em></p>
+                                        <em>Metropolitan University Programming Olympiad</em>
+                                    </p>
                                     <ul
                                         style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;padding-left:16px;">
                                         <li>Prepared slide content & technical materials for students.</li>
@@ -757,7 +767,7 @@
                                             data-gallery="portfolio-gallery-product" class="glightbox preview-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-zoom-in"></i></a>
-                                        <a href="https://github.com/আপনার_ইউজারনেম/house-rent" target="_blank"
+                                        <a href="https://github.com/kazihalim00/House-Rent" target="_blank"
                                             class="details-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-github"></i></a>
@@ -784,7 +794,7 @@
                                             data-gallery="portfolio-gallery-branding" class="glightbox preview-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-zoom-in"></i></a>
-                                        <a href="https://github.com/আপনার_ইউজারনেম/noor-ai" target="_blank"
+                                        <a href="https://github.com/kazihalim00/noor-ai" target="_blank"
                                             class="details-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-github"></i></a>
@@ -813,7 +823,7 @@
                                             data-gallery="portfolio-gallery-product" class="glightbox preview-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-zoom-in"></i></a>
-                                        <a href="https://github.com/আপনার_ইউজারনেম/library-management" target="_blank"
+                                        <a href="https://github.com/kazihalim00/library-management" target="_blank"
                                             class="details-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-github"></i></a>
@@ -842,7 +852,7 @@
                                             class="glightbox preview-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-zoom-in"></i></a>
-                                        <a href="https://github.com/আপনার_ইউজারনেম/crochet-with-nish" target="_blank"
+                                        <a href="https://github.com/kazihalim00/crochet-with-nish" target="_blank"
                                             class="details-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-github"></i></a>
@@ -871,7 +881,7 @@
                                             class="glightbox preview-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-zoom-in"></i></a>
-                                        <a href="https://github.com/আপনার_ইউজারনেম/lms" target="_blank"
+                                        <a href="https://github.com/kazihalim00/lms" target="_blank"
                                             class="details-link"
                                             style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"><i
                                                 class="bi bi-github"></i></a>
@@ -1035,9 +1045,10 @@
                 setTimeout(() => bubble.remove(), 700);
             });
 
-            // Mobile Menu Toggle
+            // Mobile Menu Toggle Logic
             const mobileNavBtn = document.getElementById('mobile-nav-btn');
             const navList = document.getElementById('nav-list');
+            const navLinks = document.querySelectorAll('.mobile-nav-link');
 
             if (mobileNavBtn) {
                 mobileNavBtn.addEventListener('click', function (e) {
@@ -1047,6 +1058,17 @@
                     this.classList.toggle('bi-x');
                 });
             }
+
+            // Close mobile menu when clicking a link
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (document.body.classList.contains('mobile-nav-active')) {
+                        document.body.classList.remove('mobile-nav-active');
+                        mobileNavBtn.classList.add('bi-list');
+                        mobileNavBtn.classList.remove('bi-x');
+                    }
+                });
+            });
 
             // Close mobile menu when clicking outside
             document.addEventListener('click', function (e) {
