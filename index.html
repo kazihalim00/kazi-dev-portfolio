@@ -8,6 +8,8 @@
     <meta name="description"
         content="Portfolio of Kazi Abdul Halim Sunny — Full-Stack Developer, Flutter & AI Engineer from Sylhet, Bangladesh.">
 
+    <link rel="preload" as="image" href="assets/img/kazi.jpeg" fetchpriority="high">
+
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link
@@ -60,6 +62,7 @@
             font-family: 'Poppins', sans-serif;
             background: var(--bg-primary);
             color: #fff;
+            overflow-x: hidden;
         }
 
         /* ===== CLICK BUBBLE ===== */
@@ -92,7 +95,7 @@
             border-radius: 50% !important;
         }
 
-        /* ===== LIGHT MODE ===== */
+        /* ===== LIGHT MODE SETTINGS ===== */
         body.light-mode {
             background: #f0f4ff !important;
             color: #1a1f35 !important;
@@ -133,15 +136,40 @@
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08) !important;
         }
 
-        body.light-mode .navmenu a {
-            color: #1a1f35 !important;
-        }
-
         body.light-mode .hero.section {
             background: #1a1f35 !important;
         }
 
-        /* ===== MOBILE RESPONSIVE & MENU FIXES ===== */
+        body.light-mode #hero h1,
+        body.light-mode #hero p,
+        body.light-mode #hero .slow-typed,
+        body.light-mode #hero a {
+            color: #ffffff !important;
+        }
+
+        /* ===== DESKTOP NAV ===== */
+        .nav-list {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+        }
+
+        .nav-list a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        body.light-mode .nav-list a {
+            color: #1a1f35;
+        }
+
+        /* ===== MOBILE SIDEBAR (SLIDE BAR) ===== */
         @media (max-width: 1199px) {
             .hero-bg-img {
                 transform: translateX(0) !important;
@@ -153,53 +181,66 @@
                 gap: 15px !important;
             }
 
-            /* Hide desktop menu items */
-            #nav-list {
-                display: none !important;
-            }
-
-            /* Show Mobile Dropdown Menu */
-            body.mobile-nav-active #nav-list {
-                display: flex !important;
-                flex-direction: column;
+            .nav-list {
                 position: fixed;
-                top: 80px;
-                right: 20px;
-                left: 20px;
-                background: var(--bg-secondary);
-                border: 1px solid var(--border-color);
-                padding: 25px 20px;
-                border-radius: 12px;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-                z-index: 99999;
-                align-items: center !important;
-                gap: 20px !important;
+                top: 0;
+                right: -320px;
+                width: 280px;
+                height: 100vh;
+                background: var(--bg-primary);
+                border-left: 1px solid var(--border-color);
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                padding: 40px;
+                transition: right 0.4s ease-in-out;
+                z-index: 99998;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
             }
 
-            body.light-mode.mobile-nav-active #nav-list {
+            body.light-mode .nav-list {
                 background: #ffffff;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
             }
 
-            /* Ensure Toggle Icon is visible and clickable */
+            body.mobile-nav-active .nav-list {
+                right: 0;
+            }
+
+            body.mobile-nav-active::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: 99997;
+            }
+
             .mobile-nav-toggle {
                 display: block !important;
                 color: #ffffff !important;
                 font-size: 32px !important;
-                z-index: 100000;
-                padding: 5px;
+                z-index: 99999;
+                position: relative;
             }
 
             body.light-mode .mobile-nav-toggle {
                 color: #1a1f35 !important;
             }
-        }
 
-        body.light-mode #hero h1,
-        body.light-mode #hero p,
-        body.light-mode #hero .slow-typed,
-        body.light-mode #hero a {
-            color: #ffffff !important;
+            .nav-list li {
+                width: 100%;
+                margin-bottom: 25px;
+            }
+
+            .nav-list a {
+                font-size: 18px;
+                display: block;
+                color: #fff;
+            }
+
+            body.light-mode .nav-list a {
+                color: #1a1f35;
+            }
         }
     </style>
 </head>
@@ -224,15 +265,14 @@
                 </button>
 
                 <nav id="navmenu" class="navmenu d-flex align-items-center" style="position:relative;">
-                    <ul class="d-flex align-items-center" id="nav-list"
-                        style="list-style:none; margin:0; padding:0; gap:4px;">
-                        <li><a href="#hero" class="active mobile-nav-link">Home</a></li>
+                    <ul id="nav-list" class="nav-list">
+                        <li><a href="#hero" class="mobile-nav-link">Home</a></li>
                         <li><a href="#about" class="mobile-nav-link">About</a></li>
                         <li><a href="#services" class="mobile-nav-link">Services</a></li>
                         <li><a href="#portfolio" class="mobile-nav-link">Projects</a></li>
                         <li>
                             <a href="#courses" class="mobile-nav-link"
-                                style="background: linear-gradient(135deg, #3b82f6, #7c3aed); color: #fff !important; padding: 7px 18px !important; border-radius: 50px; font-weight: 600; font-size: 13.5px; transition: opacity 0.2s;"
+                                style="background: linear-gradient(135deg, #3b82f6, #7c3aed); color: #fff !important; padding: 7px 18px !important; border-radius: 50px; font-weight: 600; font-size: 13.5px; display:inline-block; transition: opacity 0.2s;"
                                 onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">🎓
                                 Courses</a>
                         </li>
@@ -248,7 +288,8 @@
     <main class="main">
         <section id="hero" class="hero section dark-background"
             style="position:relative; overflow:hidden; min-height:100vh; display:flex; align-items:center;">
-            <img src="assets/img/kazi.jpeg" alt="Kazi Abdul Halim Sunny" class="hero-bg-img" data-aos="fade-in"
+            <img src="assets/img/kazi.jpeg" alt="Kazi Abdul Halim Sunny" class="hero-bg-img" fetchpriority="high"
+                data-aos="fade-in"
                 style="position:absolute; inset:0; width:90%; height:90%; object-fit:cover; object-position:center 15%; transform:translateX(200px); z-index:0; opacity:1;">
             <div
                 style="position:absolute;inset:0;z-index:1; background:linear-gradient(to right, rgba(10,13,22,0.96) 0%, rgba(10,13,22,0.75) 42%, rgba(10,13,22,0.15) 65%, rgba(10,13,22,0.5) 100%);">
@@ -353,7 +394,7 @@
                             <div
                                 style="position:absolute;inset:-6px;border-radius:50%; background:linear-gradient(135deg,#3b82f6,#7c3aed);z-index:0;">
                             </div>
-                            <img src="assets/img/kazi.jpeg" alt="Kazi Abdul Halim Sunny"
+                            <img src="assets/img/kazi.jpeg" loading="lazy" alt="Kazi Abdul Halim Sunny"
                                 style="width:200px;height:200px;border-radius:50%; object-fit:cover;object-position:center 8%; position:relative;z-index:1;border:4px solid #0f1117;">
                         </div>
                         <div style="margin-top:28px;">
@@ -390,7 +431,7 @@
                                 </div>
                             </div>
 
-                            <a href="assets/Kazi_Sunny_CV.pdf" download="Kazi_Sunny_CV.pdf" target="_blank"
+                            <a href="assets/Kazi_Sunny_CV.pdf" target="_blank"
                                 style="display:inline-flex;align-items:center;gap:8px;margin-top:20px; background:linear-gradient(135deg,#3b82f6,#7c3aed); color:#fff;padding:11px 28px;border-radius:50px; font-size:14px;font-weight:600;text-decoration:none; box-shadow:0 4px 20px rgba(99,102,241,0.3);">
                                 <i class="bi bi-file-earmark-pdf"></i> Download CV
                             </a>
@@ -1045,9 +1086,8 @@
                 setTimeout(() => bubble.remove(), 700);
             });
 
-            // Mobile Menu Toggle Logic
+            // Mobile Slide-bar Menu Toggle Logic
             const mobileNavBtn = document.getElementById('mobile-nav-btn');
-            const navList = document.getElementById('nav-list');
             const navLinks = document.querySelectorAll('.mobile-nav-link');
 
             if (mobileNavBtn) {
@@ -1059,24 +1099,29 @@
                 });
             }
 
-            // Close mobile menu when clicking a link
+            // Close slide-bar when a link is clicked
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     if (document.body.classList.contains('mobile-nav-active')) {
                         document.body.classList.remove('mobile-nav-active');
-                        mobileNavBtn.classList.add('bi-list');
-                        mobileNavBtn.classList.remove('bi-x');
+                        if (mobileNavBtn) {
+                            mobileNavBtn.classList.add('bi-list');
+                            mobileNavBtn.classList.remove('bi-x');
+                        }
                     }
                 });
             });
 
-            // Close mobile menu when clicking outside
+            // Close slide-bar when clicking anywhere else on the screen
             document.addEventListener('click', function (e) {
-                if (document.body.classList.contains('mobile-nav-active') && e.target !== mobileNavBtn && (!navList || !navList.contains(e.target))) {
-                    document.body.classList.remove('mobile-nav-active');
-                    if (mobileNavBtn) {
-                        mobileNavBtn.classList.add('bi-list');
-                        mobileNavBtn.classList.remove('bi-x');
+                const navList = document.getElementById('nav-list');
+                if (document.body.classList.contains('mobile-nav-active')) {
+                    if (e.target !== mobileNavBtn && (!navList || !navList.contains(e.target))) {
+                        document.body.classList.remove('mobile-nav-active');
+                        if (mobileNavBtn) {
+                            mobileNavBtn.classList.add('bi-list');
+                            mobileNavBtn.classList.remove('bi-x');
+                        }
                     }
                 }
             });
