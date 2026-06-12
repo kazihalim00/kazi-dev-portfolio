@@ -8,6 +8,8 @@
     <meta name="description"
         content="Portfolio of Kazi Abdul Halim Sunny — Full-Stack Developer, Flutter & AI Engineer from Sylhet, Bangladesh.">
 
+    <link rel="preload" as="image" href="assets/img/kazi.jpeg" fetchpriority="high">
+
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link
@@ -61,31 +63,6 @@
             background: var(--bg-primary);
             color: #fff;
             overflow-x: hidden;
-        }
-
-        /* ===== CLICK BUBBLE ===== */
-        .click-bubble {
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(99, 179, 237, 0.6), transparent);
-            transform: translate(-50%, -50%);
-            animation: bubble-out 0.7s ease-out forwards;
-        }
-
-        @keyframes bubble-out {
-            0% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translate(-50%, -50%) scale(5);
-                opacity: 0;
-            }
         }
 
         .scroll-top {
@@ -146,7 +123,7 @@
         }
 
         /* ===== DESKTOP NAV ===== */
-        .nav-list {
+        .navmenu ul {
             display: flex;
             align-items: center;
             list-style: none;
@@ -155,7 +132,7 @@
             gap: 20px;
         }
 
-        .nav-list a {
+        .navmenu a {
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
@@ -163,15 +140,16 @@
             transition: color 0.3s;
         }
 
-        body.light-mode .nav-list a {
+        body.light-mode .navmenu a {
             color: #1a1f35;
         }
 
-        .my-mobile-toggle {
+        /* Hide Mobile Specific Elements on Desktop */
+        .my-overlay {
             display: none;
         }
 
-        /* ===== MOBILE SIDEBAR (SLIDE BAR) ===== */
+        /* ===== MOBILE SIDEBAR (SLIDE BAR) - RESIZED FOR BETTER LOOK ===== */
         @media (max-width: 1199px) {
             .hero-bg-img {
                 transform: translateX(0) !important;
@@ -179,70 +157,114 @@
                 object-position: center top !important;
             }
 
-            .header-actions {
-                gap: 15px !important;
+            /* 1. Navmenu UL behaves as Sidebar */
+            .navmenu ul {
+                position: fixed !important;
+                top: 0 !important;
+                right: -320px !important;
+                /* Hidden outside the screen initially */
+                bottom: 0 !important;
+                width: 250px !important;
+                /* Made the sidebar slightly narrower */
+                background: var(--bg-primary) !important;
+                border-left: 1px solid var(--border-color) !important;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+                align-items: flex-start !important;
+                padding: 80px 25px 30px 25px !important;
+                /* Adjusted top padding */
+                margin: 0 !important;
+                z-index: 99998 !important;
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.8) !important;
+                transition: right 0.4s ease-in-out !important;
+                display: flex !important;
+                /* Force display flex always to allow sliding */
+                visibility: visible !important;
+                opacity: 1 !important;
+                overflow-y: auto !important;
             }
 
-            .nav-list {
-                position: fixed;
-                top: 0;
-                right: -320px;
-                /* Hide outside the screen */
-                width: 280px;
-                height: 100vh;
-                background: var(--bg-primary);
-                border-left: 1px solid var(--border-color);
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-                padding: 40px;
-                transition: right 0.4s ease-in-out;
-                z-index: 99998;
-                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+            body.light-mode .navmenu ul {
+                background: #ffffff !important;
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15) !important;
             }
 
-            body.light-mode .nav-list {
-                background: #ffffff;
-                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+            /* 2. Slide In when body has mobile-nav-active (main.js does this automatically) */
+            body.mobile-nav-active .navmenu ul {
+                right: 0 !important;
             }
 
-            body.custom-mobile-active .nav-list {
-                right: 0;
-            }
-
-            body.custom-mobile-active::before {
-                content: "";
-                position: fixed;
-                inset: 0;
-                background: rgba(0, 0, 0, 0.7);
-                z-index: 99997;
-            }
-
-            .my-mobile-toggle {
+            /* 3. Style the Toggle Icon so it's visible */
+            .mobile-nav-toggle {
                 display: block !important;
                 color: #ffffff !important;
-                font-size: 32px !important;
-                z-index: 99999;
+                font-size: 30px !important;
+                z-index: 99999 !important;
+                /* Always above the sidebar */
+                cursor: pointer;
                 position: relative;
             }
 
-            body.light-mode .my-mobile-toggle {
+            body.light-mode .mobile-nav-toggle {
                 color: #1a1f35 !important;
             }
 
-            .nav-list li {
-                width: 100%;
-                margin-bottom: 25px;
+            /* 4. Links Styling inside sidebar (Made Smaller and Compact) */
+            .navmenu ul li {
+                width: 100% !important;
+                margin-bottom: 12px !important;
+                /* Reduced gap between links */
             }
 
-            .nav-list a {
-                font-size: 18px;
+            .navmenu ul a {
+                font-size: 15px !important;
+                /* Reduced font size */
+                font-weight: 500 !important;
+                /* Normal font weight */
+                display: block !important;
+                color: #fff !important;
+                padding: 8px 0 !important;
+                /* Reduced padding */
+                text-decoration: none !important;
+            }
+
+            body.light-mode .navmenu ul a {
+                color: #1a1f35 !important;
+            }
+
+            /* Courses Button Custom Spacing in Mobile (Made Smaller) */
+            .navmenu ul a[href="#courses"] {
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding: 8px 20px !important;
+                /* Smaller button */
+                border-radius: 50px !important;
+                margin-top: 10px !important;
+                font-size: 14px !important;
+                /* Smaller text inside button */
+                font-weight: 600 !important;
+            }
+
+            /* 5. Dark Overlay Background */
+            .my-overlay {
                 display: block;
-                color: #fff;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.7);
+                backdrop-filter: blur(2px);
+                z-index: 99997;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s ease-in-out;
             }
 
-            body.light-mode .nav-list a {
-                color: #1a1f35;
+            body.mobile-nav-active .my-overlay {
+                opacity: 1;
+                visibility: visible;
             }
         }
     </style>
@@ -253,40 +275,43 @@
     <header id="header" class="header d-flex align-items-center sticky-top">
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
             style="padding: 14px 24px;">
+
             <a href="#hero" class="logo d-flex align-items-center" style="text-decoration:none;">
                 <h1 class="sitename"
                     style="margin:0; font-size:1.4rem; font-weight:800; letter-spacing:2px; background: linear-gradient(135deg, #63b3ed, #9f7aea); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
                     K.A.H.S</h1>
             </a>
 
-            <div class="header-actions d-flex align-items-center">
-                <button id="theme-toggle" class="btn border-0 me-2" aria-label="Toggle theme"
-                    style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s;"
+            <div class="d-flex align-items-center gap-3">
+                <button id="theme-toggle" class="btn border-0 p-0 d-flex align-items-center justify-content-center"
+                    aria-label="Toggle theme"
+                    style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); border-radius: 50%; width: 40px; height: 40px; transition: background 0.2s;"
                     onmouseover="this.style.background='rgba(99,179,237,0.2)'"
                     onmouseout="this.style.background='rgba(255,255,255,0.08)'">
                     <i class="bi bi-sun-fill" id="theme-icon" style="font-size:18px;"></i>
                 </button>
 
-                <nav id="navmenu" class="navmenu d-flex align-items-center" style="position:relative;">
-                    <ul id="nav-list" class="nav-list">
-                        <li><a href="#hero" class="mobile-nav-link">Home</a></li>
-                        <li><a href="#about" class="mobile-nav-link">About</a></li>
-                        <li><a href="#services" class="mobile-nav-link">Services</a></li>
-                        <li><a href="#portfolio" class="mobile-nav-link">Projects</a></li>
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Projects</a></li>
                         <li>
-                            <a href="#courses" class="mobile-nav-link"
+                            <a href="#courses"
                                 style="background: linear-gradient(135deg, #3b82f6, #7c3aed); color: #fff !important; padding: 7px 18px !important; border-radius: 50px; font-weight: 600; font-size: 13.5px; display:inline-block; transition: opacity 0.2s;"
                                 onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">🎓
                                 Courses</a>
                         </li>
-                        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
-                    <i class="my-mobile-toggle d-xl-none bi bi-list ms-3" id="my-custom-nav-btn"
-                        style="cursor:pointer;"></i>
+                    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
                 </nav>
             </div>
         </div>
     </header>
+
+    <div class="my-overlay"></div>
 
     <main class="main">
         <section id="hero" class="hero section dark-background"
@@ -434,9 +459,9 @@
                                 </div>
                             </div>
 
-                            <a href="assets/Kazi_Sunny_CV.pdf" target="_blank"
+                            <a href="Kazi_Sunny_CV.pdf" target="_blank"
                                 style="display:inline-flex;align-items:center;gap:8px;margin-top:20px; background:linear-gradient(135deg,#3b82f6,#7c3aed); color:#fff;padding:11px 28px;border-radius:50px; font-size:14px;font-weight:600;text-decoration:none; box-shadow:0 4px 20px rgba(99,102,241,0.3);">
-                                <i class="bi bi-file-earmark-pdf"></i> Download CV
+                                <i class="bi bi-file-earmark-pdf"></i> View / Download CV
                             </a>
                         </div>
                     </div>
@@ -1079,6 +1104,35 @@
                 });
             }
 
+            // Mobile Menu Overlay Close Logic
+            const overlay = document.querySelector('.my-overlay');
+            if (overlay) {
+                overlay.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    document.body.classList.remove('mobile-nav-active');
+                    const toggleBtn = document.querySelector('.mobile-nav-toggle');
+                    if (toggleBtn) {
+                        toggleBtn.classList.remove('bi-x');
+                        toggleBtn.classList.add('bi-list');
+                    }
+                });
+            }
+
+            // Close Mobile Menu on Link Click
+            const navLinks = document.querySelectorAll('.navmenu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (document.body.classList.contains('mobile-nav-active')) {
+                        document.body.classList.remove('mobile-nav-active');
+                        const toggleBtn = document.querySelector('.mobile-nav-toggle');
+                        if (toggleBtn) {
+                            toggleBtn.classList.remove('bi-x');
+                            toggleBtn.classList.add('bi-list');
+                        }
+                    }
+                });
+            });
+
             // Click Bubble Effect
             document.addEventListener('click', function (e) {
                 let bubble = document.createElement('div');
@@ -1087,47 +1141,6 @@
                 bubble.style.top = e.clientY + 'px';
                 document.body.appendChild(bubble);
                 setTimeout(() => bubble.remove(), 700);
-            });
-
-            // CUSTOM MOBILE SLIDE-BAR MENU LOGIC
-            const myMobileNavBtn = document.getElementById('my-custom-nav-btn');
-            const navList = document.getElementById('nav-list');
-            const navLinks = document.querySelectorAll('.mobile-nav-link');
-
-            if (myMobileNavBtn) {
-                myMobileNavBtn.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    document.body.classList.toggle('custom-mobile-active');
-                    this.classList.toggle('bi-list');
-                    this.classList.toggle('bi-x');
-                });
-            }
-
-            // Close slide-bar when a link is clicked
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (document.body.classList.contains('custom-mobile-active')) {
-                        document.body.classList.remove('custom-mobile-active');
-                        if (myMobileNavBtn) {
-                            myMobileNavBtn.classList.add('bi-list');
-                            myMobileNavBtn.classList.remove('bi-x');
-                        }
-                    }
-                });
-            });
-
-            // Close slide-bar when clicking anywhere else on the screen
-            document.addEventListener('click', function (e) {
-                if (document.body.classList.contains('custom-mobile-active')) {
-                    if (e.target !== myMobileNavBtn && (!navList || !navList.contains(e.target))) {
-                        document.body.classList.remove('custom-mobile-active');
-                        if (myMobileNavBtn) {
-                            myMobileNavBtn.classList.add('bi-list');
-                            myMobileNavBtn.classList.remove('bi-x');
-                        }
-                    }
-                }
             });
         });
     </script>
