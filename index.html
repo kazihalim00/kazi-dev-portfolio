@@ -8,8 +8,6 @@
     <meta name="description"
         content="Portfolio of Kazi Abdul Halim Sunny — Full-Stack Developer, Flutter & AI Engineer from Sylhet, Bangladesh.">
 
-    <link rel="preload" as="image" href="assets/img/kazi.jpeg" fetchpriority="high">
-
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link
@@ -169,6 +167,10 @@
             color: #1a1f35;
         }
 
+        .my-mobile-toggle {
+            display: none;
+        }
+
         /* ===== MOBILE SIDEBAR (SLIDE BAR) ===== */
         @media (max-width: 1199px) {
             .hero-bg-img {
@@ -185,6 +187,7 @@
                 position: fixed;
                 top: 0;
                 right: -320px;
+                /* Hide outside the screen */
                 width: 280px;
                 height: 100vh;
                 background: var(--bg-primary);
@@ -203,11 +206,11 @@
                 box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
             }
 
-            body.mobile-nav-active .nav-list {
+            body.custom-mobile-active .nav-list {
                 right: 0;
             }
 
-            body.mobile-nav-active::before {
+            body.custom-mobile-active::before {
                 content: "";
                 position: fixed;
                 inset: 0;
@@ -215,7 +218,7 @@
                 z-index: 99997;
             }
 
-            .mobile-nav-toggle {
+            .my-mobile-toggle {
                 display: block !important;
                 color: #ffffff !important;
                 font-size: 32px !important;
@@ -223,7 +226,7 @@
                 position: relative;
             }
 
-            body.light-mode .mobile-nav-toggle {
+            body.light-mode .my-mobile-toggle {
                 color: #1a1f35 !important;
             }
 
@@ -278,7 +281,7 @@
                         </li>
                         <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
                     </ul>
-                    <i class="mobile-nav-toggle d-xl-none bi bi-list ms-3" id="mobile-nav-btn"
+                    <i class="my-mobile-toggle d-xl-none bi bi-list ms-3" id="my-custom-nav-btn"
                         style="cursor:pointer;"></i>
                 </nav>
             </div>
@@ -558,7 +561,7 @@
                                         <em>Metropolitan University, Sylhet</em>
                                     </p>
                                     <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;">CGPA
-                                        3.9+ · Vice Chancellor Scholarship · Chairman's Scholarship</p>
+                                        3.95+ · Vice Chancellor Scholarship · Chairman's Scholarship</p>
                                 </div>
                             </div>
                             <div style="margin-bottom:0;position:relative;">
@@ -594,8 +597,8 @@
                                     style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:22px;">
                                     <span style="font-size:12px;color:#9f7aea;font-weight:600;letter-spacing:1px;">2025
                                         – Present</span>
-                                    <h5 style="color:#fff;font-weight:700;font-size:0.95rem;margin:8px 0 4px;">General
-                                        Secretary & Co-curricular Secretary</h5>
+                                    <h5 style="color:#fff;font-weight:700;font-size:0.95rem;margin:8px 0 4px;">
+                                        Co-curricular Secretary</h5>
                                     <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:8px;">
                                         <em>Software Innovators Forum, Metropolitan University</em>
                                     </p>
@@ -1086,14 +1089,16 @@
                 setTimeout(() => bubble.remove(), 700);
             });
 
-            // Mobile Slide-bar Menu Toggle Logic
-            const mobileNavBtn = document.getElementById('mobile-nav-btn');
+            // CUSTOM MOBILE SLIDE-BAR MENU LOGIC
+            const myMobileNavBtn = document.getElementById('my-custom-nav-btn');
+            const navList = document.getElementById('nav-list');
             const navLinks = document.querySelectorAll('.mobile-nav-link');
 
-            if (mobileNavBtn) {
-                mobileNavBtn.addEventListener('click', function (e) {
+            if (myMobileNavBtn) {
+                myMobileNavBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
                     e.stopPropagation();
-                    document.body.classList.toggle('mobile-nav-active');
+                    document.body.classList.toggle('custom-mobile-active');
                     this.classList.toggle('bi-list');
                     this.classList.toggle('bi-x');
                 });
@@ -1102,11 +1107,11 @@
             // Close slide-bar when a link is clicked
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    if (document.body.classList.contains('mobile-nav-active')) {
-                        document.body.classList.remove('mobile-nav-active');
-                        if (mobileNavBtn) {
-                            mobileNavBtn.classList.add('bi-list');
-                            mobileNavBtn.classList.remove('bi-x');
+                    if (document.body.classList.contains('custom-mobile-active')) {
+                        document.body.classList.remove('custom-mobile-active');
+                        if (myMobileNavBtn) {
+                            myMobileNavBtn.classList.add('bi-list');
+                            myMobileNavBtn.classList.remove('bi-x');
                         }
                     }
                 });
@@ -1114,13 +1119,12 @@
 
             // Close slide-bar when clicking anywhere else on the screen
             document.addEventListener('click', function (e) {
-                const navList = document.getElementById('nav-list');
-                if (document.body.classList.contains('mobile-nav-active')) {
-                    if (e.target !== mobileNavBtn && (!navList || !navList.contains(e.target))) {
-                        document.body.classList.remove('mobile-nav-active');
-                        if (mobileNavBtn) {
-                            mobileNavBtn.classList.add('bi-list');
-                            mobileNavBtn.classList.remove('bi-x');
+                if (document.body.classList.contains('custom-mobile-active')) {
+                    if (e.target !== myMobileNavBtn && (!navList || !navList.contains(e.target))) {
+                        document.body.classList.remove('custom-mobile-active');
+                        if (myMobileNavBtn) {
+                            myMobileNavBtn.classList.add('bi-list');
+                            myMobileNavBtn.classList.remove('bi-x');
                         }
                     }
                 }
